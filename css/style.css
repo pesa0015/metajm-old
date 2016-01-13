@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
+html, body {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#start {
+    background: url(../img/mychair.se.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+header {
+    margin: 42px 0px 0px 42px;
+}
+#logo {
+    color: #FFFFFF;
+    float: left;
+}
+header ul {
+    list-style: none;
+    color: #FFFFFF;
+    right: 5%;
+    margin: 0;
+}
+header ul li {
+    display: inline;
+    margin-right: 25px;
+}
+#logo, header ul {
+    position: absolute;
+    display: inline-block;
+}
+#geolocation {
+    margin: 20% 149px 0% 0%;
+    float: right;
+}
+.position {
+    background: transparent;
+    padding: 10px 0px 10px 0px;
+    border: 1px solid #C0C0C0;
+    text-align: center;
+    color: #C0C0C0;
+    display: block;
+    width: 200px;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; 
+    box-sizing: content-box;
+}
+#position-area {
+    float: left;
+}
+#submit {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    padding: 20px;
+    font-size: 30px;
+}
+#map {
+    height: 100%;
+    width: 75%;
+    float: left;
+}
+#company-list {
+    width: 20%;
+    float: left;
+}
