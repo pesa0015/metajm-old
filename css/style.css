@@ -53,6 +53,9 @@ header ul li {
 #position-area {
     float: left;
 }
+#get-location:focus {
+    outline: 0;
+}
 #submit {
     background: transparent;
     color: #FFFFFF;
