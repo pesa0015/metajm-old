@@ -94,8 +94,8 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-                    // var baseUrl = 'http://46.101.90.3/mobile_api';
-                    var baseUrl = 'http://localhost:8888/metajm';
+                    var baseUrl = 'http://46.101.90.3/mobile_api';
+                    
                     function loadContent(e, lat, lng) {
                         var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function() {
