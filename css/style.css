@@ -33,6 +33,9 @@ header ul li {
     position: absolute;
     display: inline-block;
 }
+#address-or-city:hover + #get-location, #address-or-city:focus + #get-location {
+    opacity: 0.3;
+}
 #geolocation {
     margin: 20% 149px 0% 0%;
     float: right;
@@ -53,7 +56,7 @@ header ul li {
 #position-area {
     float: left;
 }
-#get-location:focus {
+#address-or-city:focus, #get-location:focus {
     outline: 0;
 }
 #submit {

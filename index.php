@@ -19,7 +19,7 @@
         </header>
         <form id="geolocation">
             <div id="position-area">
-                <input type="text" class="position" placeholder="Ange adress eller stad">
+                <input type="text" id="address-or-city" class="position" placeholder="Ange adress eller stad">
                 <input type="button" id="get-location" class="position" value="Hitta min position">
             </div>
             <button id="submit" class="ion-checkmark-round"></button>
@@ -65,6 +65,26 @@
       }
       
       var getLocation = document.getElementById('get-location');
+      var addressOrCity = document.getElementById('address-or-city');
+      getLocation.onmouseover = function() {
+        document.getElementById('address-or-city').style.opacity = '0.3';    
+      }
+      getLocation.onmouseout = function() {
+        document.getElementById('address-or-city').style.opacity = '1';    
+      }
+      addressOrCity.onclick = function() {
+        if (addressOrCity === document.activeElement) {
+            getLocation.onmouseover = function() {
+                getLocation.style.opacity = '1';
+            }
+            getLocation.onmouseout = function() {
+                getLocation.style.opacity = '0.3';
+            }
+            addressOrCity.onfocusout = function() {
+                getLocation.style.opacity = '1';
+            }
+        }
+      }
       getLocation.addEventListener('click', function() {
             if (navigator.geolocation) {
                 getLocation.value = 'Söker..';
