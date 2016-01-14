@@ -42,6 +42,7 @@
           center: new google.maps.LatLng(lat, lng),
           zoom: 12,
           scrollwheel: false,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#6195a0"}]},{"featureType":"administrative.province","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"lightness":"0"},{"saturation":"0"},{"color":"#f5f5f2"},{"gamma":"1"}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"lightness":"-3"},{"gamma":"1.00"}]},{"featureType":"landscape.natural.terrain","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#bae5ce"},{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fac9a9"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"transit.station.airport","elementType":"labels.icon","stylers":[{"hue":"#0a00ff"},{"saturation":"-77"},{"gamma":"0.57"},{"lightness":"0"}]},{"featureType":"transit.station.rail","elementType":"labels.text.fill","stylers":[{"color":"#43321e"}]},{"featureType":"transit.station.rail","elementType":"labels.icon","stylers":[{"hue":"#ff6c00"},{"lightness":"4"},{"gamma":"0.75"},{"saturation":"-68"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#eaf6f8"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c7eced"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"lightness":"-49"},{"saturation":"-53"},{"gamma":"0.79"}]}],
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -66,11 +67,20 @@
       
       var getLocation = document.getElementById('get-location');
       var addressOrCity = document.getElementById('address-or-city');
+      var send = document.getElementById('submit');
       getLocation.onmouseover = function() {
-        document.getElementById('address-or-city').style.opacity = '0.3';    
+        document.getElementById('address-or-city').style.opacity = '0.3';
+        if (addressOrCity !== document.activeElement) {
+            send.style.opacity = '0.3';
+            getLocation.style.borderRight = '1px solid #C0C0C0';
+        }    
       }
       getLocation.onmouseout = function() {
-        document.getElementById('address-or-city').style.opacity = '1';    
+        document.getElementById('address-or-city').style.opacity = '1';
+        if (addressOrCity !== document.activeElement) {
+            send.style.opacity = '1';
+            getLocation.style.borderRight = 'none';
+        }    
       }
       addressOrCity.onclick = function() {
         if (addressOrCity === document.activeElement) {
@@ -101,14 +111,17 @@
                         xhttp.onreadystatechange = function() {
                             if (xhttp.readyState == 4 && xhttp.status == 200) {
                                 var companies = JSON.parse(xhttp.responseText);
-                                // var html = '';
                                 initialize(lat, lng, companies);
+                                function isEven(n) {
+                                    return n % 2 == 0;
+                                }
+
                                 for (var i = 0; i <= companies.length-1; i++) {
-                                    // html += '<div class="company">' + companies[i].Bolagsnamn + '</div>';
-                                    $(e).append('<div class="company">' + companies[i].Bolagsnamn + '</div>');
+                                    if (isEven(i))
+                                        $(e).append('<div class="company company-even"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
+                                    else
+                                        $(e).append('<div class="company company-odd"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
                                 };
-                                // document.getElementById(e).innerHTML = html;
-                                // console.log(companies);
                             }
                         }
                         xhttp.open('POST', baseUrl + '/mobile_api/post/companies.php', true);

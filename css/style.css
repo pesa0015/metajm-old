@@ -28,10 +28,15 @@ header ul {
 header ul li {
     display: inline;
     margin-right: 25px;
+    font-size: 15px;
 }
 #logo, header ul {
     position: absolute;
     display: inline-block;
+}
+#address-or-city, #get-location {
+    font-size: 20px;
+    width: 270px;
 }
 #address-or-city:hover + #get-location, #address-or-city:focus + #get-location {
     opacity: 0.3;
@@ -53,17 +58,49 @@ header ul li {
     -webkit-box-sizing: content-box; 
     box-sizing: content-box;
 }
+.position::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+.position:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+.position::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+.position:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+.position:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
 #position-area {
     float: left;
+}
+#address-or-city {
+    border-right: none;
+}
+#get-location {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    border-top: none;
+    border-right: none;
+}
+#get-location:hover {
+    border-top: 1px solid #C0C0C0;
 }
 #address-or-city:focus, #get-location:focus {
     outline: 0;
 }
 #submit {
     background: transparent;
-    color: #FFFFFF;
+    color: #C0C0C0;
     border: 1px solid #C0C0C0;
-    padding: 20px;
+    padding: 35px;
     font-size: 30px;
 }
 #map {
@@ -72,6 +109,29 @@ header ul li {
     float: left;
 }
 #company-list {
-    width: 20%;
+    width: 25%;
     float: left;
+}
+.company {
+    padding: 0px 0px 15px 0px;
+}
+.company-even {
+    background: #FFFFFF;
+}
+.company-odd {
+    background: #F1F1F1;
+}
+.company-name {
+    padding: 25px 0px 25px 35px;
+    margin: 0;
+}
+.company-address,
+.company-postalcode {
+    color: #CCCCCC;
+}
+.company-address {
+    margin: 0px 0px 5px 35px;
+}
+.company-postalcode {
+    margin: 0px 0px 0px 35px;    
 }
