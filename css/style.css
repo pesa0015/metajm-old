@@ -6,111 +6,116 @@ html, body {
     padding: 0;
 }
 #start {
-    background: url(../img/mychair.se.jpg) no-repeat;
+    /*background: url(../img/mychair.se.jpg) no-repeat;
     background-size: 100%;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden;*/
+    background: url(../img/stol_startsida.jpg) no-repeat;
+    /*background-size: 50% 100%;*/
 }
-header {
-    margin: 42px 0px 0px 42px;
+#start-background {
+    background: url(../img/png_fade.png);
+    background-size: 101% 100%;
+    height: 854px;
+    /*margin-top: -42px;*/
 }
-#logo {
+#intro {
+    font-weight: 300;
+    text-align: center;
     color: #FFFFFF;
-    float: left;
-}
-header ul {
-    list-style: none;
-    color: #FFFFFF;
-    right: 5%;
-    margin: 0;
-}
-header ul li {
-    display: inline;
-    margin-right: 25px;
-    font-size: 15px;
-}
-#logo, header ul {
-    position: absolute;
-    display: inline-block;
-}
-#address-or-city, #get-location {
-    font-size: 20px;
-    width: 270px;
-}
-#address-or-city:hover + #get-location, #address-or-city:focus + #get-location {
-    opacity: 0.3;
+    margin: 0px;
 }
 #geolocation {
-    margin: 20% 149px 0% 0%;
-    float: right;
-}
-.position {
-    background: transparent;
-    padding: 10px 0px 10px 0px;
-    border: 1px solid #C0C0C0;
     text-align: center;
-    color: #C0C0C0;
-    display: block;
-    width: 200px;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; 
-    box-sizing: content-box;
 }
-.position::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+input[type=checkbox] {
+display:none;
 }
-.position:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+ 
+input[type=checkbox] + label
+{
+display:inline-block;
+padding: 0 0 0 0px;
+/* Double-sized Checkboxes */
+  -ms-transform: scale(1); /* IE */
+  -moz-transform: scale(1); /* FF */
+  -webkit-transform: scale(1); /* Safari and Chrome */
+  -o-transform: scale(1); /* Opera */
+  padding: 30px;
 }
-.position::-moz-placeholder { /* Mozilla Firefox 19+ */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+input[type=checkbox]:checked + label
+{
+background: #5d5061;
 }
-.position:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+label[for=hair] {
+  background: url(../img/icon_haircare_lila.png);
 }
-.position:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+input[type=checkbox] + label:hover, #submit {
+    background: #5d5061;
+    cursor: pointer;
+    /*position: absolute;
+    content:attr(data-title);
+    left:0;
+    top:0;
+    width:200px;
+    height:1.25rem;
+    background-color: blue;
+    color:white;*/
 }
-#position-area {
-    float: left;
+label[for=dental] {
+  background: url(../img/icon_dental_lila.png);
 }
-#address-or-city {
-    border-right: none;
+label[for=nail] {
+  background: url(../img/icon_nails_lila.png);
+  background-color: #FFFFFF;
+  margin-right: -4px;
 }
-#get-location {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    border-top: none;
-    border-right: none;
+label[for=tattoo] {
+  background: url(../img/icon_tattoo_lila.png);
+  background-color: #FFFFFF;
 }
-#get-location:hover {
-    border-top: 1px solid #C0C0C0;
+label[for=hair], label[for=nail], label[for=dental], label[for=tattoo] {
+    background-position: center center;
+    background-size: 40% 40%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
-#address-or-city:focus, #get-location:focus {
-    outline: 0;
+label[for=hair], label[for=dental] {
+    background-color: #F5F4F6;
+    margin-right: -3px;
 }
 #submit {
-    background: transparent;
-    color: #C0C0C0;
-    border: 1px solid #C0C0C0;
-    padding: 35px;
-    font-size: 30px;
+    background: #5d5061;
+    font-size: 25px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    padding: 14px 20px 14px 20px;
+    margin: 0px 0px 0px -3px;
+}
+#address::-webkit-input-placeholder,
+#address:-moz-placeholder,
+#address::-moz-placeholder,
+#address:-ms-input-placeholder,
+#address:placeholder-shown { 
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
 }
 #map {
+    display: none;
     height: 100%;
     width: 75%;
     float: left;
 }
 #company-list {
+    overflow-y: scroll;
+
+    height: 100%;
     width: 25%;
     float: left;
+}
+#selected-company {
+    top: 0px;
 }
 .company {
     padding: 0px 0px 15px 0px;
