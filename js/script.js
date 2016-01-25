@@ -122,31 +122,31 @@ function renderStyle(event, padding, color) {
   event.target.style.color = color;
 }
 
-for (var i = 0; i <= x.length-1; i++) {
-  x[i].addEventListener('mouseover', function(event) {
-    event.target.innerHTML = event.target.htmlFor;
-    if (!event.target.previousSibling.checked)
-      renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
-  });
-  x[i].addEventListener('mouseout', function(event) {
-    if (!event.target.previousSibling.checked) {
-      event.target.innerHTML = '';
-      renderStyle(event, '30px', '');
-    }
-    else
-      renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
-  });
-  x[i].addEventListener('click', function(event) {
-    if (!event.target.previousSibling.checked) {
-      event.target.innerHTML = event.target.htmlFor;
-      renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
-    }
-    else {
-      event.target.innerHTML = '';
-      renderStyle(event, '30px', '');
-    }
-  });
-}
+// for (var i = 0; i <= x.length-1; i++) {
+//   x[i].addEventListener('mouseover', function(event) {
+//     event.target.innerHTML = event.target.htmlFor;
+//     if (!event.target.previousSibling.checked)
+//       renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
+//   });
+//   x[i].addEventListener('mouseout', function(event) {
+//     if (!event.target.previousSibling.checked) {
+//       event.target.innerHTML = '';
+//       renderStyle(event, '30px', '');
+//     }
+//     else
+//       renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
+//   });
+//   x[i].addEventListener('click', function(event) {
+//     if (!event.target.previousSibling.checked) {
+//       event.target.innerHTML = event.target.htmlFor;
+//       renderStyle(event, '20px 17px 20px 17px', '#FFFFFF');
+//     }
+//     else {
+//       event.target.innerHTML = '';
+//       renderStyle(event, '30px', '');
+//     }
+//   });
+// }
 
 var body = document.getElementsByTagName('body')[0];
 
