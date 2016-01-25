@@ -46,10 +46,9 @@ padding: 0 0 0 0px;
   width: 10px;
   height: 10px;
 }
-input[type=checkbox]:checked + label
-{
-background: #5d5061;
-}
+/*input[type=checkbox]:checked + label {
+    background: #5d5061;
+}*/
 label[for=hair] {
   background: url(../img/icon_haircare_lila.png);
 }
@@ -87,20 +86,30 @@ label[for=hair], label[for=dental] {
     background-color: #F5F4F6;
     margin-right: -3px;
 }
-label[for=hair]:hover {
+label[for=hair]:hover, input[type=checkbox]:checked + label[for=hair] {
     background: url(../img/haircare.png);
-}
-label[for=nail]:hover {
-    background: url(../img/nails.png);
-}
-label[for=dental]:hover {
-    background: url(../img/dental.png);
-}
-label[for=tattoo]:hover {
-    background: url(../img/tattoo.png);
-}
-label.services:hover {
     background-color: #F5F4F6;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=nail]:hover, input[type=checkbox]:checked + label[for=nail] {
+    background: url(../img/nails.png);
+    background-color: #FFFFFF;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=dental]:hover, input[type=checkbox]:checked + label[for=dental] {
+    background: url(../img/dental.png);
+    background-color: #F5F4F6;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=tattoo]:hover, input[type=checkbox]:checked + label[for=tattoo] {
+    background: url(../img/tattoo.png);
+    background-color: #FFFFFF;
     background-position: center center;
     background-size: 80% 80%;
     background-repeat: no-repeat;
