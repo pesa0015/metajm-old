@@ -86,29 +86,57 @@ label[for=hair], label[for=dental] {
     background-color: #F5F4F6;
     margin-right: -3px;
 }
-label[for=hair]:hover, input[type=checkbox]:checked + label[for=hair] {
-    background: url(../img/haircare.png);
+label[for=hair]:hover {
+    background: url(../img/hair_over.png);
     background-color: #F5F4F6;
     background-position: center center;
     background-size: 80% 80%;
     background-repeat: no-repeat;
 }
-label[for=nail]:hover, input[type=checkbox]:checked + label[for=nail] {
-    background: url(../img/nails.png);
+input[type=checkbox]:checked + label[for=hair] {
+    background: url(../img/hair.png);
+    background-color: #F5F4F6;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=nail]:hover {
+    background: url(../img/nails_over.png);
     background-color: #FFFFFF;
     background-position: center center;
     background-size: 80% 80%;
     background-repeat: no-repeat;
 }
-label[for=dental]:hover, input[type=checkbox]:checked + label[for=dental] {
-    background: url(../img/dental.png);
+input[type=checkbox]:checked + label[for=nail] {
+    background: url(../img/nails1.png);
+    background-color: #FFFFFF;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=dental]:hover {
+    background: url(../img/dental_over.png);
     background-color: #F5F4F6;
     background-position: center center;
     background-size: 80% 80%;
     background-repeat: no-repeat;
 }
-label[for=tattoo]:hover, input[type=checkbox]:checked + label[for=tattoo] {
-    background: url(../img/tattoo.png);
+input[type=checkbox]:checked + label[for=dental] {
+    background: url(../img/dental1.png);
+    background-color: #F5F4F6;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+label[for=tattoo]:hover {
+    background: url(../img/tattoo_over.png);
+    background-color: #FFFFFF;
+    background-position: center center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+}
+input[type=checkbox]:checked + label[for=tattoo] {
+    background: url(../img/tattoo1.png);
     background-color: #FFFFFF;
     background-position: center center;
     background-size: 80% 80%;
@@ -168,4 +196,10 @@ label[for=tattoo]:hover, input[type=checkbox]:checked + label[for=tattoo] {
 }
 .company-postalcode {
     margin: 0px 0px 0px 35px;    
+}
+.new-service {
+    width: 300px;
+}
+.select2-container .existing-service .category {
+    width: 300px;
 }

@@ -26,6 +26,7 @@
                         <input type="hidden" id="lng" name="lng">
                     </div>
                 </form>
+                <div style="text-align: center;"><a href="login" style="color: #FFFFFF; text-decoration: none;">Logga in</a></div>
             </div>
             <div id="selected-company"></div>
         </div>
