@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (password_verify($password, $pwd)) {
 			$_SESSION['company_id'] = $company_exists[0]['id'];
 			$_SESSION['company'] = $company_exists[0]['Bolagsnamn'];
-			header('Location: ../../company?show=services');
+			header('Location: ../../company?show=times');
 		}
 	}
 }
