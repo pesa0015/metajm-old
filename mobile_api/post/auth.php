@@ -19,7 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['company'] = $company_exists[0]['Bolagsnamn'];
 			header('Location: ../../company?show=times');
 		}
+		else
+			header('Location: ../../login');
 	}
+	else
+		header('Location: ../../login');
 }
 
 ?>
