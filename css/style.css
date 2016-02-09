@@ -212,3 +212,16 @@ input[type=checkbox]:checked + label[for=tattoo] {
     float: right;
     margin-right: 10%;
 }
+/*td.fc-day:hover.fc-widget-content:hover {
+    background: #C0C0C0;
+    cursor: pointer;
+}*/
+td.fc-day-number:hover {
+    background: #C0C0C0;
+    cursor: pointer;
+}
+.fc-ltr .fc-basic-view .fc-day-number {
+    text-align: center;
+    height: 67px;
+    vertical-align: middle;
+}

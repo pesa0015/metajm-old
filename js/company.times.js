@@ -56,7 +56,7 @@ function timeFalse(time) {
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
 }
-var calendar = document.getElementsByClassName('fc-day');
+var calendar = document.getElementsByClassName('fc-day-number');
 var timeToManage = document.getElementsByClassName('timestamp');
 var xhttp = new XMLHttpRequest();
 
