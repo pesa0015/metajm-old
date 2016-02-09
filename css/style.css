@@ -203,3 +203,12 @@ input[type=checkbox]:checked + label[for=tattoo] {
 .select2-container .existing-service .category {
     width: 300px;
 }
+#times {
+    width: 30%;
+    float: left;
+}
+#calendar {
+    width: 500px;
+    float: right;
+    margin-right: 10%;
+}
