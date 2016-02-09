@@ -11,7 +11,7 @@
 					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?></div>
 				<?php endif; ?>
 			<?php else: ?>
-				<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> Lägg till<?php echo $i; ?></div>
+				<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> Lägg till</div>
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php else: ?>
