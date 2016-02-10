@@ -1,0 +1,65 @@
+body {
+    width: 90%;
+    margin: auto;
+}
+header {
+    /*background: #C0C0C0;*/
+    padding: 15px 0px 15px 0px;
+    /*width: 90%;
+    margin: auto;*/
+}
+#company-name {
+    display: inline-block;
+    /*margin-left: 100px;*/
+}
+nav {
+    display: inline-block;
+    float: right;
+    /*margin-right: 100px;*/
+}
+nav a {
+    margin: 0px 10px 0px 10px;
+}
+nav a:last-child {
+    margin-right: 0px;
+}
+.new-service {
+    width: 300px;
+}
+.select2-container .existing-service .category {
+    width: 300px;
+}
+#times {
+    width: 30%;
+    float: left;
+}
+.timestamp {
+    margin-bottom: 10px;
+}
+.timestamp:last-child {
+    margin-bottom: 0px;
+}
+#calendar {
+    width: 500px;
+    float: right;
+    /*margin-right: 10%;*/
+}
+/*td.fc-day:hover.fc-widget-content:hover {
+    background: #C0C0C0;
+    cursor: pointer;
+}*/
+td.fc-day-number:hover {
+    background: #C0C0C0;
+    cursor: pointer;
+}
+.fc-ltr .fc-basic-view .fc-day-number {
+    text-align: center;
+    height: 67px;
+    vertical-align: middle;
+}
+.ion-android-add {
+    color: #4CA64C;
+}
+.ion-android-remove {
+    color: #FF4C4C;
+}

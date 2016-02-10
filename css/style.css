@@ -197,37 +197,3 @@ input[type=checkbox]:checked + label[for=tattoo] {
 .company-postalcode {
     margin: 0px 0px 0px 35px;    
 }
-.new-service {
-    width: 300px;
-}
-.select2-container .existing-service .category {
-    width: 300px;
-}
-#times {
-    width: 30%;
-    float: left;
-}
-#calendar {
-    width: 500px;
-    float: right;
-    margin-right: 10%;
-}
-/*td.fc-day:hover.fc-widget-content:hover {
-    background: #C0C0C0;
-    cursor: pointer;
-}*/
-td.fc-day-number:hover {
-    background: #C0C0C0;
-    cursor: pointer;
-}
-.fc-ltr .fc-basic-view .fc-day-number {
-    text-align: center;
-    height: 67px;
-    vertical-align: middle;
-}
-.ion-android-add {
-    color: #4CA64C;
-}
-.ion-android-remove {
-    color: #FF4C4C;
-}

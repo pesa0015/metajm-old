@@ -20,11 +20,18 @@ require 'mysql/query.php';
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.css">
 	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/company.css">
 </head>
 <body>
-	<h1><?=$_SESSION['company']; ?></h1>
-	<a href="logout">Logga ut</a><a href="company?show=times">Tider</a><a href="company?show=services">Prislista</a><a href="company?show=services&manage">Hantera tjänster</a>
+	<header>
+		<div id="company-name"><?=$_SESSION['company']; ?></div>
+		<nav id="nav">
+			<a href="logout">Logga ut</a>
+			<a href="company?show=times">Tider</a>
+			<a href="company?show=services">Prislista</a>
+			<a href="company?show=services&manage">Hantera tjänster</a>
+		</nav>
+	</header>
 	<?php
 	switch ($_GET['show']) {
 		case 'times':
