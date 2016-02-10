@@ -32,6 +32,7 @@
 		<input type="button" id="add-new-service" value="+">
 		<input type="submit" value="Uppdatera">
 	</form>
+	<script>var rowNr = <?=count($services); ?>+2;</script>
 	<?php }
 	if (isset($_GET['show']) && !isset($_GET['manage']) && $_GET['show'] === 'services') {
 		$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company_id']} ORDER BY id;");
@@ -61,7 +62,4 @@
 		else { 
 			if (!isset($_GET['manage'])) { ?>
 			<p>Ni har inga tjänster. <a href="company?show=services&manage">Lägg till.</a></p>
-		<?php }}
-	?>
-	<script>var rowNr = <?=count($services); ?>+2;</script>
-	<?php } ?>
+		<?php }}} ?>
