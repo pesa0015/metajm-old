@@ -225,3 +225,9 @@ td.fc-day-number:hover {
     height: 67px;
     vertical-align: middle;
 }
+.ion-android-add {
+    color: #4CA64C;
+}
+.ion-android-remove {
+    color: #FF4C4C;
+}
