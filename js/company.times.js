@@ -169,7 +169,7 @@ function removeTime(element, day, timestamp) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             if (xhttp.responseText == 1) {
                 element.removeAttribute('id');
-                element.innerHTML = timestamp + ' Lägg till';
+                element.innerHTML = timestamp + ' <span class="ion-android-add"></span>';
             }
         }
     }
@@ -184,7 +184,7 @@ function addTime(element, day, timestamp) {
             if (!isNaN(xhttp.responseText)) {
                 element.id = xhttp.responseText;
                 element.setAttribute('value', timestamp);
-                element.innerHTML = timestamp;
+                element.innerHTML = timestamp + ' <span class="ion-android-remove"></span>';
             }
         }
     }

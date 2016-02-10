@@ -8,10 +8,10 @@
 				<?php if ($schedule[$key]['booked'] == 1): ?>
 					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp booked" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <?=$schedule[$key]['first_name'] . ' ' . $schedule[$key]['last_name']; ?></div>
 				<?php else: ?>
-					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?></div>
+					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <span class="ion-android-remove"></span></div>
 				<?php endif; ?>
 			<?php else: ?>
-				<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> Lägg till</div>
+				<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> <span class="ion-android-add"></span></div>
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php else: ?>

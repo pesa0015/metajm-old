@@ -19,6 +19,7 @@ require 'mysql/query.php';
 	<?php } if (isset($_GET['show']) && $_GET['show'] == 'services') { ?>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.css">
 	<?php } ?>
+	<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
