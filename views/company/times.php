@@ -17,7 +17,7 @@
 	<?php else: ?>
 		<div id="today" value="<?=date('Y-m-d'); ?>" style="display: none;"></div>
 		<?php foreach($newTimes as $newTime): ?>
-			<div class="timestamp" value="<?=$newTime; ?>"><?=$newTime; ?></div>
+			<div class="timestamp" value="<?=$newTime; ?>"><?=$newTime; ?> <span class="ion-android-add"></span></div>
 		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
