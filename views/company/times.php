@@ -17,7 +17,7 @@
 	<?php else: ?>
 		<div id="today" value="<?=date('Y-m-d'); ?>" style="display: none;"></div>
 		<?php foreach($newTimes as $newTime): ?>
-			<div class="timestamp"><?=$newTime; ?></div>
+			<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTime; ?></div>
 		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
