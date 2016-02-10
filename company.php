@@ -45,7 +45,7 @@ require 'mysql/query.php';
 			break;
 		case 'services':
 			require 'views/company/services.php';
-			$script = array('//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.js', 'js/company.services.js');
+			$script = array('https://code.jquery.com/jquery-2.1.4.min.js', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.js', 'js/company.services.js');
 			break;
 		case 'profile':
 			require 'views/company/profile.php';
