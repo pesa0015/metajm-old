@@ -29,9 +29,14 @@ nav a:last-child {
 .select2-container .existing-service .category {
     width: 300px;
 }
+#calendar {
+    width: 500px;
+    display: inline-block;
+}
 #times {
-    width: 30%;
-    float: left;
+    width: 400px;
+    float: right;
+    margin-right: 200px;
 }
 .timestamp {
     font-size: 20px;
@@ -39,11 +44,6 @@ nav a:last-child {
 }
 .timestamp:last-child {
     margin-bottom: 0px;
-}
-#calendar {
-    width: 500px;
-    float: right;
-    /*margin-right: 10%;*/
 }
 /*td.fc-day:hover.fc-widget-content:hover {
     background: #C0C0C0;

@@ -1,7 +1,8 @@
 <h1>Tider</h1>
+<div id="calendar"></div>
 <div id="times">
+	<h1 id="today" value="<?=date('Y-m-d'); ?>"></h1>
 	<?php if ($schedule): ?>
-		<div id="today" value="<?=date('Y-m-d'); ?>" style="display: none;"></div>
 		<?php for ($i = 0; $i < count($newTimes); $i++): ?>
 		<?php $today = date('Y-m-d') . ' ' . $newTimes[$i]; ?>
 			<?php if (in_array($today, $times)): ?>
@@ -16,10 +17,8 @@
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php else: ?>
-		<div id="today" value="<?=date('Y-m-d'); ?>" style="display: none;"></div>
 		<?php foreach($newTimes as $newTime): ?>
 			<div class="timestamp" value="<?=$newTime; ?>"><?=$newTime; ?> <span class="ion-android-add"></span></div>
 		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
-<div id="calendar"></div>
