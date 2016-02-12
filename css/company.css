@@ -34,6 +34,7 @@ nav a:last-child {
     float: left;
 }
 .timestamp {
+    font-size: 20px;
     margin-bottom: 10px;
 }
 .timestamp:last-child {
@@ -67,7 +68,7 @@ td.fc-day-number:hover {
     margin-bottom: 10px;
     border-bottom: 1px solid;
     padding-bottom: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 .yes, .no {
     float: right;
