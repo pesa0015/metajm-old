@@ -103,7 +103,7 @@ var removeConfirm = function() {
 function confirmRemoveTime(element, day, timestamp) {
     var div = document.createElement('div');
     var text = document.createElement('span');
-    text.innerHTML = 'Är du säker?';
+    text.innerHTML = 'Ta bort tid?';
     var yes = document.createElement('span');
     yes.setAttribute('id', element.id);
     yes.setAttribute('class', 'yes');
@@ -114,7 +114,7 @@ function confirmRemoveTime(element, day, timestamp) {
     div.setAttribute('id', 'remove-' + element.id);
     div.setAttribute('class', 'remove');
     element.removeAttribute('id');
-    yes.innerHTML = 'Ja <span class="ion-trash-a"></span>';
+    yes.innerHTML = 'Ja, ta bort <span class="ion-trash-a"></span>';
     no.innerHTML = 'Nej <span class="ion-ios-close"></span>';
     div.appendChild(text);
     div.appendChild(yes);
