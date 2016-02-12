@@ -63,3 +63,18 @@ td.fc-day-number:hover {
 .ion-android-remove {
     color: #FF4C4C;
 }
+.remove {
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+.yes, .no {
+    float: right;
+}
+.yes {
+    
+}
+.no {
+    margin-right: 25px;
+}

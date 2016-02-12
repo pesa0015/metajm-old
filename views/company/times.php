@@ -1,3 +1,4 @@
+<h1>Tider</h1>
 <div id="times">
 	<?php if ($schedule): ?>
 		<div id="today" value="<?=date('Y-m-d'); ?>" style="display: none;"></div>
