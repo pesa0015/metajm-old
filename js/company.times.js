@@ -83,6 +83,7 @@ var removeTime = function() {
             if (xhttp.responseText == 1) {
                 html.innerHTML = value + ' <span class="ion-android-add"></span>';
                 html.removeAttribute('id');
+                html.className = 'timestamp';
                 $(removeElement).remove();
             }
         }
@@ -92,6 +93,7 @@ var removeTime = function() {
     xhttp.send('id=' + this.id + '&timestamp=' + day + ' ' + this.getAttribute('value'));
 }
 var removeConfirm = function() {
+    this.parentNode.previousSibling.className = 'timestamp';
     this.parentNode.previousSibling.setAttribute('id', this.previousSibling.id);
     $(this).parent().remove();
 }
@@ -109,6 +111,7 @@ function confirmRemoveTime(element, day, timestamp) {
     div.setAttribute('id', 'remove-' + element.id);
     div.setAttribute('class', 'remove');
     element.removeAttribute('id');
+    element.className = 'timestamp confirm-remove';
     yes.innerHTML = 'Ja, ta bort <span class="ion-trash-a"></span>';
     no.innerHTML = 'Nej <span class="ion-ios-close"></span>';
     div.appendChild(text);
@@ -136,12 +139,14 @@ function addTime(element, day, timestamp) {
 var manageTime = function() {
     var day = document.getElementById('today').getAttribute('value');
     id = parseInt(this.id);
-    if (isNaN(id)) 
+    if (isNaN(id) && this.className !== 'timestamp confirm-remove') 
         addTime(this, day, this.getAttribute('value'));
     else {
-        var t = confirmRemoveTime(this, day, this.getAttribute('value'));
-        t.remove.addEventListener('click', removeTime, false);
-        t.cancel.addEventListener('click', removeConfirm, false);
+        if (this.className !== 'timestamp confirm-remove') {
+            var t = confirmRemoveTime(this, day, this.getAttribute('value'));
+            t.remove.addEventListener('click', removeTime, false);
+            t.cancel.addEventListener('click', removeConfirm, false);
+        }
     }
 };
 for (var i = 0; i < timeToManage.length; i++) {
