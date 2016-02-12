@@ -1,4 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 body {
+    font-family: 'Source Sans Pro', sans-serif;
     width: 90%;
     margin: auto;
 }
@@ -32,25 +34,82 @@ nav a:last-child {
 #calendar {
     width: 500px;
     display: inline-block;
+    margin-left: 330px;
 }
 #times {
     width: 400px;
     float: right;
-    margin-right: 200px;
+    margin-right: 0px;
 }
 .timestamp {
     font-size: 20px;
+    color: #5d5061;
     margin-bottom: 10px;
 }
 .timestamp:last-child {
     margin-bottom: 0px;
 }
+.timestamp:hover {
+    color: #eae5ec;
+    cursor: pointer;
+}
+.minus {
+    color: #eae6ec;
+}
+.plus {
+    color: #5d5061;
+}
 /*td.fc-day:hover.fc-widget-content:hover {
     background: #C0C0C0;
     cursor: pointer;
 }*/
+.fc-toolbar {
+    background: #f5f4f7;
+    color: #5d5061;
+    margin: 0px;
+    padding: 10px;
+}
+.fc-left h2 {
+    font-weight: 100;
+}
+.fc-button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: 0px;
+}
+.fc-button-group button {
+    font-size: 45px;
+    color: #5d5061;
+}
+.fc-button-group button span {
+    display: none;
+}
+/*.ion-android-arrow-dropleft-circle, .ion-android-arrow-dropright-circle {
+    font-size: 45px;
+}*/
+.fc-day-header {
+    background: #eae5ec;
+    color: #5d5061;
+}
+.fc-day-number.fc-today.fc-state-highlight {
+    background: #eae5ec;
+    color: #5d5061;
+}
+.fc-unthemed .fc-today {
+    background: #f5f4f7;
+}
+.fc td {
+    border: 1px solid #f5f4f6;
+}
+.fc-agenda-slots td div {
+     height: 40px !important;
+}
+td.fc-day-number {
+    color: #ccc3ce;
+}
 td.fc-day-number:hover {
-    background: #C0C0C0;
+    background: #f5f4f6;
     cursor: pointer;
 }
 .fc-ltr .fc-basic-view .fc-day-number {
@@ -58,17 +117,27 @@ td.fc-day-number:hover {
     height: 67px;
     vertical-align: middle;
 }
-.ion-android-add {
+.ion-ios-plus-outline {
     color: #4CA64C;
+    margin-left: 30px;
 }
 .ion-android-remove {
     color: #FF4C4C;
+    margin-left: 15px;
 }
 .remove {
     margin-bottom: 10px;
+    border-color: #f5f4f6;
     border-bottom: 1px solid;
-    padding-bottom: 10px;
+    border-top: 1px solid;
+    border-bottom-color: #f5f4f6;
+    border-top-color: #f5f4f6;
+    /*padding-bottom: 10px;*/
+    padding: 10px 0px 10px 18px;
     font-size: 15px;
+}
+.remove span {
+    color: #5d5061;
 }
 .yes, .no {
     float: right;

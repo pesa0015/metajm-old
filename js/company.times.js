@@ -12,9 +12,9 @@ function JsonContainsTime(json, time) {
 function timeTrue(data) {
     var x = document.getElementById('times');
     var div = document.createElement('div');
-    div.innerHTML = data.timestamp.substr(11);
+    div.innerHTML = data.timestamp.substr(11) + ' <span class="ion-android-remove"></span>';
     div.setAttribute('id', data.id);
-    div.setAttribute('class', 'timestamp');
+    div.setAttribute('class', 'timestamp minues');
     div.setAttribute('value', data.timestamp.substr(11));
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
@@ -22,8 +22,8 @@ function timeTrue(data) {
 function timeFalse(time) {
     var x = document.getElementById('times');
     var div = document.createElement('div');
-    div.innerHTML = time + ' Lägg till';
-    div.setAttribute('class', 'timestamp');
+    div.innerHTML = time + ' <span class="ion-ios-plus-outline"></span>';
+    div.setAttribute('class', 'timestamp plus');
     div.setAttribute('value', time);
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
@@ -34,6 +34,10 @@ var xhttp = new XMLHttpRequest();
 
 $('#calendar').fullCalendar({
     height: 550,
+    header: {
+            left: 'title',
+            right: 'prev,next'
+        }, 
     dayClick: function(date, jsEvent, view) {
         xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -69,9 +73,31 @@ $('#calendar').fullCalendar({
     xhttp.send('search=timestamp&timestamp=' + date.format());
     },
     eventAfterRender: function() {
-        $('.fc-week').css('height','10px');
+        // $('.fc-week').css('height','10px');
     }
 });
+// var arrowLeft = document.createElement('div');
+// var arrowRight = document.createElement('div');
+// arrowLeft.setAttribute('class', 'ion-android-arrow-dropleft-circle');
+// arrowRight.setAttribute('class', 'ion-android-arrow-dropright-circle');
+// var fcButtonGroup = document.getElementsByClassName('fc-button-group')[0];
+// $('.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right.fc-state-disabled').remove();
+// $('.fc-icon.fc-icon-left-single-arrow').remove();
+// $('.fc-prev-button.fc-button.fc-state-default.fc-corner-left').remove();
+// $('.fc-next-button.fc-button.fc-state-default.fc-corner-right').remove();
+// $('.fc-icon.fc-icon-right-single-arrow').remove();
+// fcButtonGroup.appendChild(arrowLeft);
+// fcButtonGroup.appendChild(arrowRight);
+
+document.getElementsByClassName('fc-prev-button fc-button fc-state-default fc-corner-left')[0].className += ' ion-android-arrow-dropleft-circle';
+document.getElementsByClassName('fc-next-button fc-button fc-state-default fc-corner-right')[0].className += ' ion-android-arrow-dropright-circle';
+// document.getElementsByClassName('fc-button-group')[0].removeAttribute('class');
+// var fcButton = document.getElementsByClassName('fc-button-group');
+// var fcButton = document.getElementsByClassName('fc-button');
+// console.log(fcButton[1].className);
+// fcButton[0].className = 'ion-android-arrow-dropleft-circle';
+// console.log(fcButton[0]);
+// fcButton[1].className = 'ion-android-arrow-dropright-circle';
 var removeTime = function() {
     var day = document.getElementById('today').getAttribute('value');
     var value = this.getAttribute('value');
@@ -81,9 +107,9 @@ var removeTime = function() {
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             if (xhttp.responseText == 1) {
-                html.innerHTML = value + ' <span class="ion-android-add"></span>';
+                html.innerHTML = value + ' <span class="ion-ios-plus-outline"></span>';
                 html.removeAttribute('id');
-                html.className = 'timestamp';
+                html.className = 'timestamp plus';
                 $(removeElement).remove();
             }
         }
@@ -93,8 +119,9 @@ var removeTime = function() {
     xhttp.send('id=' + this.id + '&timestamp=' + day + ' ' + this.getAttribute('value'));
 }
 var removeConfirm = function() {
-    this.parentNode.previousSibling.className = 'timestamp';
+    this.parentNode.previousSibling.className = 'timestamp minus';
     this.parentNode.previousSibling.setAttribute('id', this.previousSibling.id);
+    this.parentNode.previousSibling.innerHTML = this.parentNode.previousSibling.getAttribute('value') + ' <span class="ion-android-remove"></span>';
     $(this).parent().remove();
 }
 function confirmRemoveTime(element, day, timestamp) {
@@ -127,6 +154,7 @@ function addTime(element, day, timestamp) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             if (!isNaN(xhttp.responseText)) {
                 element.id = xhttp.responseText;
+                element.className = 'timestamp minus';
                 element.setAttribute('value', timestamp);
                 element.innerHTML = timestamp + ' <span class="ion-android-remove"></span>';
             }

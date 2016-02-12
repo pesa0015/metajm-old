@@ -8,17 +8,17 @@
 			<?php if (in_array($today, $times)): ?>
 				<?php $key = array_search($today, $times); ?>
 				<?php if ($schedule[$key]['booked'] == 1): ?>
-					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp booked" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <?=$schedule[$key]['first_name'] . ' ' . $schedule[$key]['last_name']; ?></div>
+					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp minus booked" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <?=$schedule[$key]['first_name'] . ' ' . $schedule[$key]['last_name']; ?></div>
 				<?php else: ?>
-					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <span class="ion-android-remove"></span></div>
+					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp minus free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?> <span class="ion-android-remove"></span></div>
 				<?php endif; ?>
 			<?php else: ?>
-				<div class="timestamp" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> <span class="ion-android-add"></span></div>
+				<div class="timestamp plus" value="<?=$newTimes[$i]; ?>"><?=$newTimes[$i]; ?> <span class="ion-ios-plus-outline"></span></div>
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php else: ?>
 		<?php foreach($newTimes as $newTime): ?>
-			<div class="timestamp" value="<?=$newTime; ?>"><?=$newTime; ?> <span class="ion-android-add"></span></div>
+			<div class="timestamp plus" value="<?=$newTime; ?>"><?=$newTime; ?> <span class="ion-ios-plus-outline"></span></div>
 		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
