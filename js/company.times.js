@@ -1,9 +1,3 @@
-$('#calendar').fullCalendar({
-    height: 500,
-    eventAfterRender: function() {
-        $('.fc-week').css('height','10px');
-    }
-});
 function firstToUpperCase( str ) {
     return str.substr(0, 1).toUpperCase() + str.substr(1);
 }
@@ -38,23 +32,21 @@ var calendar = document.getElementsByClassName('fc-day-number');
 var timeToManage = document.getElementsByClassName('timestamp');
 var xhttp = new XMLHttpRequest();
 
-var getTimeFromCalendar = function() {
-    var attribute = this.getAttribute('data-date');
-    xhttp.onreadystatechange = function() {
+$('#calendar').fullCalendar({
+    height: 550,
+    dayClick: function(date, jsEvent, view) {
+        xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             var times = [{id: 0, time: '09:00:00'}, {id: 1, time: '09:30:00'}, {id: 2, time: '10:00:00'}, {id: 3, time: '10:30:00'}, {id: 4, time: '11:00:00'}, {id: 5, time: '11:30:00'}, {id: 6, time: '12:00:00'}, {id: 7, time: '12:30:00'}, {id: 8, time: '13:00:00'}, {id: 9, time: '13:30:00'}, {id: 10, time: '14:00:00'}, {id: 11, time: '14:30:00'}, {id: 12, time: '15:00:00'}, {id: 13, time: '15:30:00'}, {id: 14, time: '16:00:00'}, {id: 15, time: '16:30:00'}];
             var x = document.getElementById('times');
-            var day = document.createElement('div');
-            day.setAttribute('id', 'today');
-            day.setAttribute('value', attribute);
-            dayText = document.createTextNode(moment(attribute).format('dddd, D MMMM'));
-            day.appendChild(dayText);
-            day.innerHTML = firstToUpperCase(day.innerHTML);
+            var day = document.getElementById('today');
+            var d = moment(date.format()).format('dddd, D MMMM');
+            day.setAttribute('value', date.format());
+            day.innerHTML = firstToUpperCase(d);
             x.innerHTML = '';
             x.appendChild(day);
             if (isNaN(xhttp.responseText)) {
                 var data = JSON.parse(xhttp.responseText);
-                console.log(data);
                 for (var i = 0; i < times.length; i++) {
                     var time = JsonContainsTime(data, times[i].time);
                     if (time) {
@@ -74,9 +66,12 @@ var getTimeFromCalendar = function() {
     }
     xhttp.open('POST', 'mobile_api/post/search.php', true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('search=timestamp&timestamp=' + attribute);
-    var x = document.getElementById('times');
-};
+    xhttp.send('search=timestamp&timestamp=' + date.format());
+    },
+    eventAfterRender: function() {
+        $('.fc-week').css('height','10px');
+    }
+});
 var removeTime = function() {
     var day = document.getElementById('today').getAttribute('value');
     var value = this.getAttribute('value');
@@ -149,10 +144,6 @@ var manageTime = function() {
         t.cancel.addEventListener('click', removeConfirm, false);
     }
 };
-
-for (var i = 0; i < calendar.length; i++) {
-    calendar[i].addEventListener('click', getTimeFromCalendar, false);
-}
 for (var i = 0; i < timeToManage.length; i++) {
     timeToManage[i].addEventListener('click', manageTime, false);
 }
