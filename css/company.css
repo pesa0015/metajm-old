@@ -71,6 +71,8 @@ nav a:last-child {
 }
 .fc-left h2 {
     font-weight: 100;
+    line-height: 47px; 
+    height:47px;
 }
 .fc-button {
     background: transparent;
@@ -79,8 +81,9 @@ nav a:last-child {
     outline: 0px;
 }
 .fc-button-group button {
-    font-size: 45px;
+    font-size: 35px;
     color: #5d5061;
+    height: auto;
 }
 .fc-button-group button span {
     display: none;
@@ -116,6 +119,16 @@ td.fc-day-number:hover {
     text-align: center;
     height: 67px;
     vertical-align: middle;
+}
+#today {
+    margin: 0px 0px 35px 0px;
+}
+#middle {
+    display:table-cell; 
+    vertical-align:middle;
+}
+.ion-android-time {
+    font-size: 50px;
 }
 .ion-ios-plus-outline {
     color: #4CA64C;

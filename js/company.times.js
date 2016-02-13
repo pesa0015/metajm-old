@@ -28,6 +28,8 @@ function timeFalse(time) {
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
 }
+var day = document.getElementById('today');
+day.innerHTML = '<span class="ion-android-time"></span><div id="middle">' + firstToUpperCase(moment(day.getAttribute('value')).format('dddd, D MMMM')) + '</div>';
 var calendar = document.getElementsByClassName('fc-day-number');
 var timeToManage = document.getElementsByClassName('timestamp');
 var xhttp = new XMLHttpRequest();
