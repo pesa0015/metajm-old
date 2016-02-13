@@ -83,6 +83,8 @@ $('#calendar').fullCalendar({
         // $('.fc-week').css('height','10px');
     }
 });
+document.getElementsByClassName('fc-content-skeleton')[0].style.marginTop = '0px';
+$('.fc-row.fc-week.fc-widget-content').css('height', '76px');
 // var arrowLeft = document.createElement('div');
 // var arrowRight = document.createElement('div');
 // arrowLeft.setAttribute('class', 'ion-android-arrow-dropleft-circle');

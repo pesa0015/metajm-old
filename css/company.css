@@ -91,6 +91,16 @@ nav a:last-child {
 /*.ion-android-arrow-dropleft-circle, .ion-android-arrow-dropright-circle {
     font-size: 45px;
 }*/
+.fc table {
+    /*height: 60px;*/
+}
+.fc-row .fc-content-skeleton {
+    padding-bottom: 0px;
+    margin-top: -5px;
+}
+.fc-row .fc-content-skeleton:first-of-type {
+    margin-top: 0px;
+}
 .fc-day-header {
     background: #eae5ec;
     color: #5d5061;
@@ -100,7 +110,8 @@ nav a:last-child {
     color: #5d5061;
 }
 .fc-unthemed .fc-today {
-    background: #f5f4f7;
+    /*background: #f5f4f7;*/
+    background: transparent;
 }
 .fc td {
     border: 1px solid #f5f4f6;
@@ -117,8 +128,13 @@ td.fc-day-number:hover {
 }
 .fc-ltr .fc-basic-view .fc-day-number {
     text-align: center;
-    height: 67px;
+    /*height: 67px;*/
     vertical-align: middle;
+    /*line-height: 62px;*/
+    line-height: 67px;
+}
+.fc-day-number.fc-today.fc-state-highlight {
+    line-height: 62px;
 }
 #today {
     margin: 0px 0px 35px 0px;
