@@ -34,12 +34,17 @@ var calendar = document.getElementsByClassName('fc-day-number');
 var timeToManage = document.getElementsByClassName('timestamp');
 var xhttp = new XMLHttpRequest();
 
+var dateChanged = function(){
+    var currentDate = $('#calendar').fullCalendar('getDate');
+    $('.fc-toolbar .fc-left h2').text(firstToUpperCase(currentDate.locale('sv').format('ddd DD MMM, YYYY')));
+}
 $('#calendar').fullCalendar({
     height: 550,
     header: {
-            left: 'title',
-            right: 'prev,next'
-        }, 
+        left: 'title',
+        right: 'prev,next'
+    },
+    eventAfterAllRender: dateChanged, 
     dayClick: function(date, jsEvent, view) {
         xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
