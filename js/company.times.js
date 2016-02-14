@@ -36,7 +36,7 @@ var xhttp = new XMLHttpRequest();
 
 var dateChanged = function(){
     var currentDate = $('#calendar').fullCalendar('getDate');
-    $('.fc-toolbar .fc-left h2').text(firstToUpperCase(currentDate.locale('sv').format('ddd DD MMM, YYYY')));
+    $('.fc-toolbar .fc-left h2').text(firstToUpperCase(currentDate.locale('sv').format('ddd D MMM, YYYY')));
 }
 $('#calendar').fullCalendar({
     height: 550,
@@ -54,7 +54,7 @@ $('#calendar').fullCalendar({
             // var d = moment(date.format()).format('dddd, D MMMM');
             // day.setAttribute('value', date.format());
             // day.innerHTML = firstToUpperCase(d);
-            $('.fc-toolbar .fc-left h2').text(firstToUpperCase(date.locale('sv').format('ddd DD MMM, YYYY')));
+            $('.fc-toolbar .fc-left h2').text(firstToUpperCase(date.locale('sv').format('ddd D MMM, YYYY')));
             x.innerHTML = '';
             x.appendChild(day);
             if (isNaN(xhttp.responseText)) {
