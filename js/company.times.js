@@ -50,10 +50,11 @@ $('#calendar').fullCalendar({
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             var times = [{id: 0, time: '09:00:00'}, {id: 1, time: '09:30:00'}, {id: 2, time: '10:00:00'}, {id: 3, time: '10:30:00'}, {id: 4, time: '11:00:00'}, {id: 5, time: '11:30:00'}, {id: 6, time: '12:00:00'}, {id: 7, time: '12:30:00'}, {id: 8, time: '13:00:00'}, {id: 9, time: '13:30:00'}, {id: 10, time: '14:00:00'}, {id: 11, time: '14:30:00'}, {id: 12, time: '15:00:00'}, {id: 13, time: '15:30:00'}, {id: 14, time: '16:00:00'}, {id: 15, time: '16:30:00'}];
             var x = document.getElementById('times');
-            var day = document.getElementById('today');
-            var d = moment(date.format()).format('dddd, D MMMM');
-            day.setAttribute('value', date.format());
-            day.innerHTML = firstToUpperCase(d);
+            // var day = document.getElementById('today');
+            // var d = moment(date.format()).format('dddd, D MMMM');
+            // day.setAttribute('value', date.format());
+            // day.innerHTML = firstToUpperCase(d);
+            $('.fc-toolbar .fc-left h2').text(firstToUpperCase(date.locale('sv').format('ddd DD MMM, YYYY')));
             x.innerHTML = '';
             x.appendChild(day);
             if (isNaN(xhttp.responseText)) {
