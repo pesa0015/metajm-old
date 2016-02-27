@@ -104,7 +104,10 @@ send.addEventListener('click', function() {
       }
 
       for (var i = 0; i < companies.length; i++) {
-        $(companyList).append('<div class="company company-' + isEven(i) + '"><span class="company-id" value="' + companies[i].id + '"></span><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
+        $(companyList).append('<div class="company company-' + isEven(i) + '" data-id="' + companies[i].id + '"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
+        document.getElementsByClassName('company')[i].addEventListener('click', function() {
+          // console.log(this.getAttribute('data-id'));
+        });
       }
     $('html, body').animate({
       scrollTop: $('#map').offset().top
