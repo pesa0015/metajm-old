@@ -183,6 +183,9 @@ input[type=checkbox]:checked + label[for=tattoo] {
 .company-odd {
     background: #F1F1F1;
 }
+.company-id {
+    display: none;
+}
 .company-name {
     padding: 25px 0px 25px 35px;
     margin: 0;
