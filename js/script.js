@@ -98,7 +98,7 @@ send.addEventListener('click', function() {
       initialize(lat.value, lng.value, companies);
       function isEven(n) {
         if (n % 2 == 0)
-          return 'event';
+          return 'even';
         else
           return 'odd';
       }
