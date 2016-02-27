@@ -97,14 +97,14 @@ send.addEventListener('click', function() {
       companyList.style.display = 'block';
       initialize(lat.value, lng.value, companies);
       function isEven(n) {
-        return n % 2 == 0;
+        if (n % 2 == 0)
+          return 'event';
+        else
+          return 'odd';
       }
 
       for (var i = 0; i <= companies.length-1; i++) {
-        if (isEven(i))
-          $(companyList).append('<div class="company company-even"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
-        else
-          $(companyList).append('<div class="company company-odd"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
+        $(companyList).append('<div class="company company-' + isEven(i) + '"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
       }
     $('html, body').animate({
       scrollTop: $('#map').offset().top
