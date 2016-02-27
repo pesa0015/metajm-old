@@ -103,7 +103,7 @@ send.addEventListener('click', function() {
           return 'odd';
       }
 
-      for (var i = 0; i <= companies.length-1; i++) {
+      for (var i = 0; i < companies.length; i++) {
         $(companyList).append('<div class="company company-' + isEven(i) + '"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
       }
     $('html, body').animate({
