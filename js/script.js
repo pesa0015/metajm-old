@@ -88,10 +88,16 @@ if (googlePlaces === 1) {
   });
 }
 
-function getServices(company_id) {
+function getServices(company_id, company_data) {
+  console.log(company_data[0].innerHTML);
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      // console.log(xhttp.responseText);
+      console.log(xhttp.responseText);
+      document.getElementById('no-position').style.display = 'none';
+      document.getElementById('company-name').innerHTML = company_data[0].innerHTML;
+      document.getElementById('company-address').innerHTML = company_data[1].innerHTML;
+      start.style.backgroundImage = 'url(img/2.jpg)';
+      $('html, body').animate({scrollTop: 0}, 1500);
     }
   }
   xhttp.open('POST', baseUrl + '/mobile_api/post/services.php', true);
@@ -117,8 +123,7 @@ send.addEventListener('click', function() {
       for (var i = 0; i < companies.length; i++) {
         $(companyList).append('<div class="company company-' + isEven(i) + '" data-id="' + companies[i].id + '"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
         document.getElementsByClassName('company')[i].addEventListener('click', function() {
-          // console.log(this.getAttribute('data-id'));
-          getServices(this.getAttribute('data-id'));
+          getServices(this.getAttribute('data-id'), this.childNodes);
         });
       }
     $('html, body').animate({
@@ -163,6 +168,34 @@ function renderStyle(event, padding, color) {
 //   });
 // }
 
+function checkCheckbox(checkbox) {
+  if (!checkbox.checked)
+    checkbox.checked = true;
+  else
+    checkbox.checked = false;
+}
+
+var inputService = document.getElementsByClassName('label-service');
+for (var i = 0; i < inputService.length; i++) {
+  inputService[i].addEventListener('click', function(event) {
+    // console.log(this);
+    // console.log(document.getElementsByClassName('ion-plus')[i]);
+    // console.log(i);
+    // console.log(document.getElementsByClassName('input-service'));
+    // console.log(event.target.parentNode);
+    // if (event.target.parentNode.className === 'label-service' && event.target.parentNode.previousSibling.checked) {
+    //   console.log(event.target.parentNode.previousSibling.value);
+    // }
+    if (event.target.parentNode.className === 'label-service') {
+      var checkbox = event.target.parentNode.previousSibling;
+      // console.log(event.target.parentNode.previousSibling.checked);
+      checkCheckbox(checkbox);
+    }
+    // document.getElementsByClassName('ion-plus')[i].style.display = 'none';
+    // document.getElementsByClassName('ion-minus')[i].style.display = 'block';
+  });
+}
+
 var body = document.getElementsByTagName('body')[0];
 
 // body.addEventListener('click', function() {
@@ -171,7 +204,7 @@ var body = document.getElementsByTagName('body')[0];
 //     });
 // });
       
-companyList.addEventListener('click', function() {
-  start.style.backgroundImage = 'url(img/2.jpg)';
-  $('html, body').animate({scrollTop: $('#selected-company').offset().top}, 1500);
-});
+// companyList.addEventListener('click', function() {
+//   start.style.backgroundImage = 'url(img/2.jpg)';
+//   $('html, body').animate({scrollTop: $('#selected-company').offset().top}, 1500);
+// });

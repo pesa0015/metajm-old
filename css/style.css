@@ -171,9 +171,6 @@ input[type=checkbox]:checked + label[for=tattoo] {
     width: 25%;
     float: left;
 }
-#selected-company {
-    top: 0px;
-}
 .company {
     padding: 0px 0px 15px 0px;
 }
@@ -196,4 +193,83 @@ input[type=checkbox]:checked + label[for=tattoo] {
 }
 .company-postalcode {
     margin: 0px 0px 0px 35px;    
+}
+#selected-company {
+    width: 40%;
+    float: right;
+    margin-top: 200px;
+}
+#company-name, #company-address, #choose-service input[type=checkbox] + label {
+    color: #FFFFFF;
+}
+#company-name {
+    margin: 0;
+}
+#company-data {
+    display: inline-block;
+}
+#choose-service {
+    overflow-y: scroll;
+    height: 400px;
+    display: inline-block;
+    float: right;
+    margin-right: 100px;
+    width: 300px;
+}
+#choose-service input[type=checkbox] {
+    display: none;
+}
+#choose-service input[type=checkbox] + label {
+    padding: 10px 10px 20px 10px;
+    display: block;
+    width: initial;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.ion-plus {
+    float: right;
+}
+.ion-minus {
+    display: none;
+    float: right;
+}
+#choose-service input[type=checkbox] + label:hover {
+    border: 1px solid #5A5A5A;
+}
+#choose-service input[type=checkbox]:checked + label {
+    background: #FFFFFF;
+    color: #000000;
+} 
+#choose-service input[type=checkbox]:checked + label {
+    background: #FFFFFF;
+    color: #000000;
+}
+#choose-service input[type=checkbox]:checked + label .ion-plus {
+    display: none;
+} 
+#choose-service input[type=checkbox]:checked + label .ion-minus {
+    display: block;
+}
+.input-services:checked + label {
+    background: yellow;
+} 
+.service-category {
+    color: #FFA500;
+    border-bottom: 1px solid #323232;
+    padding: 10px 0px 5px 10px;
+}
+.service-category:first-child {
+    padding-top: 0px;
+}
+.service-description, .service-price, .service-time {
+    display: inline-block;
+}
+.service-description {
+    width: 30%;
+}
+.service-price {
+    width: 30%;
+}
+.service-time {
+
 }
