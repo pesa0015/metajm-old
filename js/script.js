@@ -9,6 +9,7 @@ var selectedCompany = document.getElementById('selected-company');
 var address = document.getElementById('address');
 var lat = document.getElementById('lat');
 var lng = document.getElementById('lng');
+var xhttp = new XMLHttpRequest();
 // var baseUrl = 'http://46.101.90.3';
 var baseUrl = 'http://localhost:8888/metajm.v3';
 
@@ -88,7 +89,6 @@ if (googlePlaces === 1) {
 }
 
 function getServices(company_id) {
-  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       // console.log(xhttp.responseText);
@@ -101,7 +101,6 @@ function getServices(company_id) {
 
 send.addEventListener('click', function() {
   event.preventDefault();
-  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       var companies = JSON.parse(xhttp.responseText);
