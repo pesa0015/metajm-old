@@ -10,7 +10,7 @@ var address = document.getElementById('address');
 var lat = document.getElementById('lat');
 var lng = document.getElementById('lng');
 // var baseUrl = 'http://46.101.90.3';
-var baseUrl = 'http://localhost:8888/metajm.v2';
+var baseUrl = 'http://localhost:8888/metajm.v3';
 
 function initialize(lat, lng, companies) {
   var mapCanvas = document.getElementById('map');
@@ -87,6 +87,18 @@ if (googlePlaces === 1) {
   });
 }
 
+function getServices(company_id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      // console.log(xhttp.responseText);
+    }
+  }
+  xhttp.open('POST', baseUrl + '/mobile_api/post/services.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.send('company_id=' + company_id);
+}
+
 send.addEventListener('click', function() {
   event.preventDefault();
   var xhttp = new XMLHttpRequest();
@@ -107,6 +119,7 @@ send.addEventListener('click', function() {
         $(companyList).append('<div class="company company-' + isEven(i) + '" data-id="' + companies[i].id + '"><h3 class="company-name">' + companies[i].Bolagsnamn + '</h3><p class="company-address">' + companies[i].Adress + '</p><p class="company-postalcode">' + companies[i].Postnr.substring(0,3) + ' ' + companies[i].Postnr.substring(3,5) + ' ' + companies[i].Postort +'</p></div>');
         document.getElementsByClassName('company')[i].addEventListener('click', function() {
           // console.log(this.getAttribute('data-id'));
+          getServices(this.getAttribute('data-id'));
         });
       }
     $('html, body').animate({
