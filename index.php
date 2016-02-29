@@ -5,10 +5,12 @@
 	<title>Frisörbokning</title>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="http://saeedalipoor.github.io/icono/icono.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div id="start">
+    <div id="start" style="background-image:url(img/2.jpg);">
         <div id="start-background">
             <div id="no-position" style="display:none;">
                 <h1 id="intro">Hitta och boka tid till valfri tjänst</h1>
@@ -31,8 +33,14 @@
             </div>
             <div id="selected-company">
                 <div id="company-data">
-                    <h3 id="company-name">Testfrisör</h3>
-                    <div id="company-address">Testgatan 1</div>
+                    <h3 id="company-name">FOUR</h3>
+                    <div id="company-address">Burgårdsgatan 15</div>
+                    <div id="day-area">
+                        <!-- <input type="hidden" id="date-picker"> -->
+                        <div id="date-picker"></div>
+                        <div id="choose-day">Välj dag <i class="ion-ios-arrow-down"></i></div>
+                        <!-- <div id="chosen-day">1 feb</div> -->
+                    </div>
                 </div>
                 <div id="choose-service">
                     <div class="service-category">Klippning</div>
@@ -62,6 +70,32 @@
     <div id="map"></div>
     <div id="company-list"></div>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/locale/sv.js"></script>
+<!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+<script src="vendor/jquery-ui.min.js"></script>
+<script>
+    // var datePicker = $('#date-picker');
+    // $(datePicker).datepicker({
+    //     onSelect: function(date) {
+    //         alert(date);
+    //     }
+        // selectWeek: true,
+        // inline: true,
+        // startDate: '01/01/2000',
+        // firstDay: 1
+    // });
+//   $(document).mouseup(function (e)
+// {
+//     var container = $('#day-area');
+
+//     if (!container.is(e.target) // if the target of the click isn't the container...
+//         && container.has(e.target).length === 0) // ... nor a descendant of the container
+//     {
+//         $(datePicker).hide();
+//     }
+// });
+  </script>
 <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 <script src="https://maps.google.com/maps/api/js?libraries=places"></script>
 <script src="vendor/locationpicker.jquery.js"></script>

@@ -13,6 +13,18 @@ var xhttp = new XMLHttpRequest();
 // var baseUrl = 'http://46.101.90.3';
 var baseUrl = 'http://localhost:8888/metajm.v3';
 
+function firstToUpperCase( str ) {
+    return str.substr(0, 1).toUpperCase() + str.substr(1);
+}
+
+// var t = $(datePicker).datepicker('getDate');
+
+// console.log(t);
+
+// console.log(firstToUpperCase(t.locale('sv').format('ddd D MMM, YYYY')));
+
+// console.log($(datePicker).datepicker(dateFormat: 'yy-mm-dd'));
+
 function initialize(lat, lng, companies) {
   var mapCanvas = document.getElementById('map');
   var mapOptions = {
@@ -196,7 +208,32 @@ for (var i = 0; i < inputService.length; i++) {
   });
 }
 
-var body = document.getElementsByTagName('body')[0];
+// var body = document.getElementsByTagName('body')[0];
+
+function getTimes(day) {
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      console.log(xhttp.responseText);
+      // document.getElementById('no-position').style.display = 'none';
+      // document.getElementById('company-name').innerHTML = company_data[0].innerHTML;
+      // document.getElementById('company-address').innerHTML = company_data[1].innerHTML;
+      // start.style.backgroundImage = 'url(img/2.jpg)';
+      // $('html, body').animate({scrollTop: 0}, 1500);
+    }
+  }
+  xhttp.open('POST', baseUrl + '/mobile_api/post/times.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.send('company_id=' + 3605 + '&day=' + day);
+}
+
+$('#date-picker').datepicker({
+  dateFormat: 'yy-mm-dd',
+  onSelect: function(date) {
+    // alert(date);
+    // getTimes(date);
+    // console.log(date);
+  }
+});
 
 // body.addEventListener('click', function() {
 //     calendar.on('child_added', function(childSnapshot, prevChildKey) {

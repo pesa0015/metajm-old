@@ -195,18 +195,36 @@ input[type=checkbox]:checked + label[for=tattoo] {
     margin: 0px 0px 0px 35px;    
 }
 #selected-company {
-    width: 40%;
+    width: 50%;
     float: right;
     margin-top: 200px;
 }
-#company-name, #company-address, #choose-service input[type=checkbox] + label {
+#company-data, #choose-service input[type=checkbox] + label {
     color: #FFFFFF;
+}
+/*#company-name, #company-address, #choose-service input[type=checkbox] + label {
+    color: #FFFFFF;
+}*/
+#company-data {
+    display: inline-block;
+    width: 35%;
 }
 #company-name {
     margin: 0;
+    font-size: 45px;
 }
-#company-data {
-    display: inline-block;
+#company-address {
+    margin-top: 70px;
+    font-style: italic;
+    font-weight: 100;
+}
+#company-name, #company-address {
+    position: absolute;
+    right: 0;
+    margin-right: 470px;
+}
+#company-name, #company-address, #choose-day {
+    text-align: right;
 }
 #choose-service {
     overflow-y: scroll;
@@ -250,9 +268,13 @@ input[type=checkbox]:checked + label[for=tattoo] {
 #choose-service input[type=checkbox]:checked + label .ion-minus {
     display: block;
 }
-.input-services:checked + label {
-    background: yellow;
-} 
+#day-area {
+    margin-top: 150px;
+    cursor: pointer;
+}
+#date-picker {
+
+}
 .service-category {
     color: #FFA500;
     border-bottom: 1px solid #323232;
@@ -272,4 +294,10 @@ input[type=checkbox]:checked + label[for=tattoo] {
 }
 .service-time {
 
+}
+
+@media only screen and (max-width: 1320px) {
+    #selected-company {
+        width: 60%;
+    }
 }
