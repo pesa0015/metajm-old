@@ -38,8 +38,10 @@ nav a:last-child {
 }
 #times {
     width: 400px;
+    height: 525px;
     float: right;
     margin-right: 0px;
+    overflow-y: scroll;
 }
 .timestamp {
     font-size: 20px;
