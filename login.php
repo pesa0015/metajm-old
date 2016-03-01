@@ -7,8 +7,8 @@
 <body>
 	<h1>Logga in</h1>
 	<form action="mobile_api/post/auth" method="post">
-		<p>Salong:</p>
-		<input type="text" name="company">
+		<p>Mail:</p>
+		<input type="mail" name="mail">
 		<p>Lösenord:</p>
 		<input type="password" name="password">
 		<input type="submit" name="Logga in">

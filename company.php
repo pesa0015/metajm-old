@@ -24,7 +24,7 @@ require 'mysql/query.php';
 </head>
 <body>
 	<header>
-		<div id="company-name"><?=$_SESSION['company']; ?></div>
+		<div id="company-name"><?=$_SESSION['company']['name'] . ' | ' . $_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></div>
 		<nav id="nav">
 			<a href="logout">Logga ut</a>
 			<a href="company?show=times">Tider</a>
@@ -35,7 +35,7 @@ require 'mysql/query.php';
 	<?php
 	switch ($_GET['show']) {
 		case 'times':
-			$schedule = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(`timestamp`) = CURDATE() AND company_id = {$_SESSION['company_id']};");
+			$schedule = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(`timestamp`) = CURDATE() AND company_id = {$_SESSION['company']['id']};");
 			$times = array();
 			foreach($schedule as $a) {
 				array_push($times, $a['timestamp']);

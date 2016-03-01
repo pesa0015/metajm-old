@@ -9,7 +9,7 @@
 				<th>Tid (h)</th>
 			</tr>
 			<?php
-			$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company_id']} ORDER BY id;");
+			$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY id;");
 			$i = 0;
 			if ($services) {
 				foreach ($services as $service) { ?>
@@ -35,7 +35,7 @@
 	<script>var rowNr = <?=count($services); ?>+2;</script>
 	<?php }
 	if (isset($_GET['show']) && !isset($_GET['manage']) && $_GET['show'] === 'services') {
-		$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company_id']} ORDER BY id;");
+		$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY id;");
 		// $services = sqlSelect("SELECT services.id, services.name, services.price, services.time, services.category_id FROM services INNER JOIN companies_services ON services.id = companies_services.service_id WHERE companies_services.company_id = {$_SESSION['company_id']};");
 		if ($services) { ?>
 			<table>
