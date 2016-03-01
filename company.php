@@ -30,6 +30,7 @@ require 'mysql/query.php';
 			<a href="company?show=times">Tider</a>
 			<a href="company?show=services">Prislista</a>
 			<a href="company?show=services&manage">Hantera tjänster</a>
+			<a href="company?show=profile">Min sida</a>
 		</nav>
 	</header>
 	<?php
@@ -57,6 +58,7 @@ require 'mysql/query.php';
 			break;
 		case 'profile':
 			require 'views/company/profile.php';
+			$script = array('js/company.profile.js');
 			break;
 	}
 	?>
