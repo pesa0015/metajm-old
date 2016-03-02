@@ -14,7 +14,7 @@ function timeTrue(data) {
     var div = document.createElement('div');
     div.innerHTML = data.timestamp.substr(11) + ' <span class="ion-android-remove"></span>';
     div.setAttribute('id', data.id);
-    div.setAttribute('class', 'timestamp minues');
+    div.setAttribute('class', 'timestamp minus');
     div.setAttribute('value', data.timestamp.substr(11));
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
