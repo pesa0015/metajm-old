@@ -1,7 +1,7 @@
 <h1>Tider</h1>
 <div id="calendar"></div>
 <div id="times">
-	<h1 id="today" value="<?=date('Y-m-d'); ?>"></h1>
+	<input type="hidden" id="today" value="<?=date('Y-m-d'); ?>">
 	<?php if ($schedule): ?>
 		<?php for ($i = 0; $i < count($newTimes); $i++): ?>
 		<?php $today = date('Y-m-d') . ' ' . $newTimes[$i]; ?>

@@ -28,7 +28,6 @@ require 'mysql/query.php';
 		<nav id="nav">
 			<a href="logout">Logga ut</a>
 			<a href="company?show=times">Tider</a>
-			<a href="company?show=services">Prislista</a>
 			<a href="company?show=services&manage">Hantera tjänster</a>
 			<a href="company?show=profile">Min sida</a>
 		</nav>

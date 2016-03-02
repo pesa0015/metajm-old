@@ -1,6 +1,5 @@
-<?php if (isset($_GET['manage']) && empty($_GET['manage'])) { ?>
-	<form action="mobile_api/post/add_service" method="post">
-		<h1>Tjänster</h1>
+<form action="mobile_api/post/add_service" method="post" id="manage-services">
+		<h1>Redigera tjänster</h1>
 		<table id="service">
 			<tr>
 				<th>Kategori</th>
@@ -33,9 +32,10 @@
 		<input type="submit" value="Uppdatera">
 	</form>
 	<script>var rowNr = <?=count($services); ?>+2;</script>
-	<?php }
-	if (isset($_GET['show']) && !isset($_GET['manage']) && $_GET['show'] === 'services') {
-		$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY id;");
+	<div id="existing_services">
+		<h1>Nuvarande tjänster</h1>
+	<?php
+	$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY id;");
 		// $services = sqlSelect("SELECT services.id, services.name, services.price, services.time, services.category_id FROM services INNER JOIN companies_services ON services.id = companies_services.service_id WHERE companies_services.company_id = {$_SESSION['company_id']};");
 		if ($services) { ?>
 			<table>
@@ -58,8 +58,11 @@
 				</tr>
 				<?php } ?>
 			</table>
+		</div>
+		<div id="my-services">
+			<h1>Mina tjänster</h1>
+		</div>
 			<?php }
-		else { 
-			if (!isset($_GET['manage'])) { ?>
-			<p>Ni har inga tjänster. <a href="company?show=services&manage">Lägg till.</a></p>
-		<?php }}} ?>
+		else { ?>
+			<p>Ni har inga tjänster.</p>
+		<?php } ?>

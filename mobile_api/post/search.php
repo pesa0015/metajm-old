@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 		if ($search == 'timestamp' && !empty($_POST['timestamp'])) {
 			$date = sqlEscape($_POST['timestamp']);
-			$times = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(timestamp) = '{$date}' AND company_id = {$_SESSION['company_id']} ORDER BY timestamp;");
+			$times = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(timestamp) = '{$date}' AND company_id = {$_SESSION['company']['id']} ORDER BY timestamp;");
 			if ($times)
 				echo json_encode($times);
 			else

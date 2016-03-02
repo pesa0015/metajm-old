@@ -28,8 +28,8 @@ function timeFalse(time) {
     div.addEventListener('click', manageTime, false);
     x.appendChild(div);
 }
-var day = document.getElementById('today');
-day.innerHTML = '<span class="ion-android-time"></span><div id="middle">' + firstToUpperCase(moment(day.getAttribute('value')).format('dddd, D MMMM')) + '</div>';
+// var day = document.getElementById('today');
+// day.innerHTML = '<span class="ion-android-time"></span><div id="middle">' + firstToUpperCase(moment(day.getAttribute('value')).format('dddd, D MMMM')) + '</div>';
 var calendar = document.getElementsByClassName('fc-day-number');
 var timeToManage = document.getElementsByClassName('timestamp');
 var xhttp = new XMLHttpRequest();
@@ -46,18 +46,20 @@ $('#calendar').fullCalendar({
     },
     eventAfterAllRender: dateChanged, 
     dayClick: function(date, jsEvent, view) {
+        // console.log(date.format('YYYY-MM-DD'));
         xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
             var times = [{id: 0, time: '09:00:00'}, {id: 1, time: '09:30:00'}, {id: 2, time: '10:00:00'}, {id: 3, time: '10:30:00'}, {id: 4, time: '11:00:00'}, {id: 5, time: '11:30:00'}, {id: 6, time: '12:00:00'}, {id: 7, time: '12:30:00'}, {id: 8, time: '13:00:00'}, {id: 9, time: '13:30:00'}, {id: 10, time: '14:00:00'}, {id: 11, time: '14:30:00'}, {id: 12, time: '15:00:00'}, {id: 13, time: '15:30:00'}, {id: 14, time: '16:00:00'}, {id: 15, time: '16:30:00'}];
             var x = document.getElementById('times');
-            // var day = document.getElementById('today');
+            var day = document.getElementById('today');
             // var d = moment(date.format()).format('dddd, D MMMM');
-            // day.setAttribute('value', date.format());
+            day.setAttribute('value', date.format('YYYY-MM-DD'));
             // day.innerHTML = firstToUpperCase(d);
             $('.fc-toolbar .fc-left h2').text(firstToUpperCase(date.locale('sv').format('ddd D MMM, YYYY')));
             x.innerHTML = '';
             x.appendChild(day);
-            if (isNaN(xhttp.responseText)) {
+            if (isNaN(parseInt(xhttp.responseText))) {
                 var data = JSON.parse(xhttp.responseText);
                 for (var i = 0; i < times.length; i++) {
                     var time = JsonContainsTime(data, times[i].time);
@@ -78,7 +80,7 @@ $('#calendar').fullCalendar({
     }
     xhttp.open('POST', 'mobile_api/post/search.php', true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('search=timestamp&timestamp=' + date.format());
+    xhttp.send('search=timestamp&timestamp=' + date.format('YYYY-MM-DD'));
     },
     eventAfterRender: function() {
         // $('.fc-week').css('height','10px');
