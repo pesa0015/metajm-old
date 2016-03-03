@@ -25,23 +25,23 @@ nav a {
 nav a:last-child {
     margin-right: 0px;
 }
-#manage-services, #existing_services {
+#manage-services, #existing_services, #my_services {
     display: inline-block;
 }
 #existing_services {
     float: right;
     margin-right: 30%;
 }
-#existing_services table tbody tr th, #existing_services table tbody tr td {
+#existing_services table tbody tr th, #existing_services table tbody tr td, #my_services table tbody tr th, #my_services table tbody tr td {
     padding-left: 30px;
 }
-#existing_services table tbody tr th:first-child, #existing_services table tbody tr td:first-child {
+#existing_services table tbody tr th:first-child, #existing_services table tbody tr td:first-child, #my_services table tbody tr th:first-child, #my_services table tbody tr td:first-child {
     padding-left: 0px;
 }
-#existing_services table tbody tr td {
+#existing_services table tbody tr td, #my_services table tbody tr td {
     padding-top: 10px;
 }
-#existing_services table tbody tr td:last-child {
+#existing_services table tbody tr td:last-child, #my_services table tbody tr td:last-child {
     padding-top: 0px;
 }
 .new-service {

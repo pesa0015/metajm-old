@@ -38,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$c = sqlEscape($_POST['existing_service'][$i]["'category'"]);
 				$new_category = sqlAction("INSERT INTO category (name) VALUES ('{$c}');", true);
 				// $new_service = sqlAction("('{$description}', '{$price}', '{$time}', {$new_category}, {$_SESSION['company_id']}), ");
-				$insert_services .= "('{$description}', {$price}, {$time}, {$new_category}, {$_SESSION['company_id']}), ";
+				$insert_services .= "('{$description}', {$price}, {$time}, {$new_category}, {$_SESSION['company']['id']}), ";
 				// $insert_companies_services .= "({$_SESSION['company_id']}, )";
 			}
 			else {
 				$new_category = $_POST['new_service'][$i]["'category'"];
-				$insert_services .= "('{$description}', {$price}, {$time}, {$new_category}, {$_SESSION['company_id']}), ";
+				$insert_services .= "('{$description}', {$price}, {$time}, {$new_category}, {$_SESSION['company']['id']}), ";
 			}
 		}
 		$insert_services = rtrim($insert_services, ', ');
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!$update_description && !$update_price && !$update_time && !$update_category)
 		$noChangesToExistingServices = true;
 	if ($success || $noNewServices && $noChangesToExistingServices)
-		header('Location: ../../company?show=services&manage');
+		header('Location: ../../company?show=services');
 }
 
 ?>
