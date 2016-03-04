@@ -2,6 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST['company_id']) && is_numeric($_POST['company_id']) && !empty($_POST['day'])) {
+		header('Access-Control-Allow-Origin: *');
 		header('Content-Type: text/html;charset=utf-8');
 		require '../../mysql/query.php';
 		$day = sqlEscape($_POST['day']);
