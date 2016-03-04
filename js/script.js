@@ -99,13 +99,58 @@ if (googlePlaces === 1) {
       enableAutocomplete: true
   });
 }
-
+var chooseServiceList = document.getElementById('choose-service');
+function checkCheckbox(checkbox) {
+  if (!checkbox.checked)
+    checkbox.checked = true;
+  else
+    checkbox.checked = false;
+}
+function serviceCheckbox() {
+  if (this.className === 'label-service') {
+    // var checkbox = event.target.parentNode.previousSibling;
+    // console.log(event.target.parentNode.previousSibling.checked);
+    checkCheckbox(this.previousSibling);
+  }
+  // console.log(this.previousSibling);
+}
+function renderService(id, description, price, time) {
+  return '<input type="checkbox" name="service' + id + '" value="' + id +'" class="input-service"><label class="label-service" for="service' + id + '"><span class="service-description">' + description + '</span><span class="service-price"> ' + price + ' kr</span><span class="service-time">' + time + 'h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>';
+}
 function getServices(company_id, company_data) {
-  console.log(company_data[0].innerHTML);
+  // console.log(company_data[0].innerHTML);
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       console.log(xhttp.responseText);
+      var data = JSON.parse(xhttp.responseText);
+      if (data.length > 0) {
+        var categories = [];
+        var nextCategory = false;
+        var previousCategory = null;
+        for (var i = 0; i < data.length; i++) {
+          nextCategory = (previousCategory !== data[i].category_name) ? true : false;
+          if (nextCategory) {
+            // console.log('next');
+            $(chooseServiceList).append('<div class="service-category">' + data[i].category_name + '</div>');
+            $(chooseServiceList).append(renderService(data[i].id, data[i].description, data[i].price, data[i].time));
+            document.getElementsByClassName('label-service')[i].addEventListener('click', serviceCheckbox, false);
+            // $(chooseServiceList).append('<input type="checkbox" name="service' + data[i].id + '" value="' + data[i].id +'" class="input-service"><label class="label-service" for="service' + data[i].id + '"><span class="service-description">' + data[i].description + '</span><span class="service-price"> ' + data[i].price + ' kr</span><span class="service-time">' + data[i].time + 'h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>');
+          }
+          else {
+            $(chooseServiceList).append(renderService(data[i].id, data[i].description, data[i].price, data[i].time));
+            document.getElementsByClassName('label-service')[i].addEventListener('click', serviceCheckbox, false);
+            // $(chooseServiceList).append('<input type="checkbox" name="service' + data[i].id + '" value="' + data[i].id +'" class="input-service"><label class="label-service" for="service' + data[i].id + '"><span class="service-description">' + data[i].description + '</span><span class="service-price"> ' + data[i].price + ' kr</span><span class="service-time">' + data[i].time + 'h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>');
+            // console.log('previous');
+          }
+          // if ($.inArray(data[i].category_name, categories) === -1)
+          //   categories.push(data[i].category_name);
+          previousCategory = data[i].category_name;
+        }
+      }
+      console.log(data);
+      console.log(categories);
       document.getElementById('no-position').style.display = 'none';
+      document.getElementById('selected-company').style.display = 'block';
       document.getElementById('company-name').innerHTML = company_data[0].innerHTML;
       document.getElementById('company-address').innerHTML = company_data[1].innerHTML;
       start.style.backgroundImage = 'url(img/2.jpg)';
@@ -180,40 +225,34 @@ function renderStyle(event, padding, color) {
 //   });
 // }
 
-function checkCheckbox(checkbox) {
-  if (!checkbox.checked)
-    checkbox.checked = true;
-  else
-    checkbox.checked = false;
-}
-
-var inputService = document.getElementsByClassName('label-service');
-for (var i = 0; i < inputService.length; i++) {
-  inputService[i].addEventListener('click', function(event) {
-    // console.log(this);
-    // console.log(document.getElementsByClassName('ion-plus')[i]);
-    // console.log(i);
-    // console.log(document.getElementsByClassName('input-service'));
-    // console.log(event.target.parentNode);
-    // if (event.target.parentNode.className === 'label-service' && event.target.parentNode.previousSibling.checked) {
-    //   console.log(event.target.parentNode.previousSibling.value);
-    // }
-    if (event.target.parentNode.className === 'label-service') {
-      var checkbox = event.target.parentNode.previousSibling;
-      // console.log(event.target.parentNode.previousSibling.checked);
-      checkCheckbox(checkbox);
-    }
-    // document.getElementsByClassName('ion-plus')[i].style.display = 'none';
-    // document.getElementsByClassName('ion-minus')[i].style.display = 'block';
-  });
-}
+// var inputService = document.getElementsByClassName('label-service');
+// for (var i = 0; i < inputService.length; i++) {
+//   inputService[i].addEventListener('click', function(event) {
+//     if (event.target.parentNode.className === 'label-service') {
+//       var checkbox = event.target.parentNode.previousSibling;
+//       checkCheckbox(checkbox);
+//     }
+//   });
+// }
 
 // var body = document.getElementsByTagName('body')[0];
-
+var selectedDay = document.getElementById('choose-day');
+var chooseTime = document.getElementById('choose-time');
+var datePicker = document.getElementById('date-picker');
+selectedDay.addEventListener('click', function() {
+  if (datePicker.style.display == 'none')
+    datePicker.style.display = 'inline-block';
+  if (chooseTime.style.display == 'inline-block')
+    chooseTime.style.display = 'none';
+});
 function getTimes(day) {
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      console.log(xhttp.responseText);
+      // console.log(xhttp.responseText);
+      selectedDay.firstChild.innerHTML = day + ' ';
+      datePicker.style.display = 'none';
+      chooseTime.style.display = 'inline-block';
+      // console.log(selectedDay.nextSibling.innerHTML);
       // document.getElementById('no-position').style.display = 'none';
       // document.getElementById('company-name').innerHTML = company_data[0].innerHTML;
       // document.getElementById('company-address').innerHTML = company_data[1].innerHTML;
@@ -228,9 +267,10 @@ function getTimes(day) {
 
 $('#date-picker').datepicker({
   dateFormat: 'yy-mm-dd',
+  firstDay: 1,
   onSelect: function(date) {
     // alert(date);
-    // getTimes(date);
+    getTimes(date);
     // console.log(date);
   }
 });

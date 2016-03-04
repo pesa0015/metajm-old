@@ -10,9 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div id="start" style="background-image:url(img/2.jpg);">
+    <div id="start">
         <div id="start-background">
-            <div id="no-position" style="display:none;">
+            <div id="no-position">
                 <h1 id="intro">Hitta och boka tid till valfri tjänst</h1>
                 <form id="geolocation">
                    <div id="row-1" class="row">
@@ -31,39 +31,32 @@
                 </form>
                 <div style="text-align: center;"><a href="login" style="color: #FFFFFF; text-decoration: none;">Logga in</a></div>
             </div>
-            <div id="selected-company">
+            <div id="selected-company" style="display:none;">
                 <div id="company-data">
-                    <h3 id="company-name">FOUR</h3>
-                    <div id="company-address">Burgårdsgatan 15</div>
+                    <h3 id="company-name"></h3>
+                    <div id="company-address"></div>
                     <div id="day-area">
-                        <!-- <input type="hidden" id="date-picker"> -->
                         <div id="date-picker"></div>
-                        <div id="choose-day">Välj dag <i class="ion-ios-arrow-down"></i></div>
-                        <!-- <div id="chosen-day">1 feb</div> -->
+                        <div id="choose-day"><span>Välj dag </span><i class="ion-ios-arrow-down"></i></div>
+                        <div id="choose-time" style="margin-top:15px;display:none;float:right;">
+                            <div>09:00</div>
+                            <div>09:30</div>
+                            <div>10:00</div>
+                            <div>10:30</div>
+                            <div>11:00</div>
+                            <div>11:30</div>
+                            <div>12:00</div>
+                            <div>12:30</div>
+                            <div>13:30</div>
+                            <div>14:00</div>
+                            <div>14:30</div>
+                            <div>15:00</div>
+                            <div>15:30</div>
+                            <div>16:00</div>
+                        </div>
                     </div>
                 </div>
-                <div id="choose-service">
-                    <div class="service-category">Klippning</div>
-                    <input type="checkbox" name="test1" value="3" class="input-service"><label class="label-service" for="test1"><span class="service-description">Man</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test2" value="1" class="input-service"><label class="label-service" for="test2"><span class="service-description">Kvinna</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test3" value="5" class="input-service"><label class="label-service" for="test3"><span class="service-description">Barn</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <div class="service-category">Färgning</div>
-                    <input type="checkbox" name="test1" value="3" class="input-service"><label class="label-service" for="test1"><span class="service-description">Man</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test2" value="1" class="input-service"><label class="label-service" for="test2"><span class="service-description">Kvinna</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test3" value="5" class="input-service"><label class="label-service" for="test3"><span class="service-description">Barn</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <div class="service-category">Klippning</div>
-                    <input type="checkbox" name="test1" value="3" class="input-service"><label class="label-service" for="test1"><span class="service-description">Man</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test2" value="1" class="input-service"><label class="label-service" for="test2"><span class="service-description">Kvinna</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test3" value="5" class="input-service"><label class="label-service" for="test3"><span class="service-description">Barn</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <div class="service-category">Färgning</div>
-                    <input type="checkbox" name="test1" value="3" class="input-service"><label class="label-service" for="test1"><span class="service-description">Man</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test2" value="1" class="input-service"><label class="label-service" for="test2"><span class="service-description">Kvinna</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test3" value="5" class="input-service"><label class="label-service" for="test3"><span class="service-description">Barn</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <div class="service-category">Klippning</div>
-                    <input type="checkbox" name="test1" value="3" class="input-service"><label class="label-service" for="test1"><span class="service-description">Man</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test2" value="1" class="input-service"><label class="label-service" for="test2"><span class="service-description">Kvinna</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                    <input type="checkbox" name="test3" value="5" class="input-service"><label class="label-service" for="test3"><span class="service-description">Barn</span><span class="service-price"> 170 kr</span><span class="service-time">1h</span><i class="ion-plus"></i><i class="ion-minus"></i></label>
-                </div>
+                <div id="choose-service"></div>
             </div>
         </div>
     </div>
