@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Frisörbokning</title>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=activate-javascript">
+    </noscript>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="http://saeedalipoor.github.io/icono/icono.min.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
