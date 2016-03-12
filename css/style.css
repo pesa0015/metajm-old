@@ -150,6 +150,9 @@ input[type=checkbox]:checked + label[for=tattoo] {
     padding: 14px 20px 14px 20px;
     margin: 0px 0px 0px -3px;
 }
+#address {
+    width: 250px;
+}
 #address::-webkit-input-placeholder,
 #address:-moz-placeholder,
 #address::-moz-placeholder,
