@@ -24,7 +24,7 @@ require 'mysql/query.php';
 </head>
 <body>
 	<header>
-		<div id="company-name"><span><?=$_SESSION['company']['name']; ?></span> | <span><?=$_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></span></div>
+		<div id="company-name"><span><?=$_SESSION['company']['name']; ?></span><span><i class="ion-person"></i><?=$_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></span></div>
 		<nav id="nav">
 			<a href="company?show=times">Tider</a>
 			<a href="company?show=services">Hantera tjänster</a>

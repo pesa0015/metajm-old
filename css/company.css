@@ -10,17 +10,24 @@ header {
     /*width: 90%;
     margin: auto;*/
 }
+header + h1 {
+    margin-top: 50px;
+}
 #company-name {
     display: inline-block;
     /*margin-left: 100px;*/
 }
 #company-name span:first-child {
+    font-size: 20px;
+    color: #313131;
+    margin-right: 15px;
+}
+#company-name span:last-child {
     font-size: 15px;
     color: #ABABAB;
 }
-#company-name span:last-child {
-    font-size: 20px;
-    color: #313131;
+.ion-person {
+    margin-right: 5px;
 }
 nav {
     display: inline-block;
