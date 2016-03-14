@@ -51,11 +51,11 @@ nav a:hover {
     vertical-align: middle;
 }
 #manage-services, #existing_services, #my_services {
-    display: inline-block;
+    /*display: inline-block;*/
 }
 #existing_services {
-    float: right;
-    margin-right: 30%;
+    /*float: right;*/
+    /*margin-right: 30%;*/
 }
 #existing_services table tbody tr th, #existing_services table tbody tr td, #my_services table tbody tr th, #my_services table tbody tr td {
     padding-left: 30px;
@@ -69,11 +69,55 @@ nav a:hover {
 #existing_services table tbody tr td:last-child, #my_services table tbody tr td:last-child {
     padding-top: 0px;
 }
+#service {
+    margin-bottom: 25px;
+}
+#service + div {
+    
+}
+.add-new-service {
+    /*background: #f5f4f7;*/
+    background: transparent;
+    color: #5d5061;
+    padding: 10px;
+    margin-right: 30px;
+    cursor: pointer;
+    border: 1px solid #5d5061;
+    border-radius: 21px;
+}
+.add-new-service span {
+    margin-right: 10px;
+}
+.add-new-service:hover {
+    background: #F5F4F7;
+    border: 1px solid #F5F4F7;
+}
+.add-new-service:hover .ion-ios-plus-outline.service, .add-new-service:hover .ion-ios-checkmark-outline.service {
+    display: none;
+}
+.add-new-service:hover .ion-ios-plus.service, .add-new-service:hover .ion-ios-checkmark.service {
+    display: inline-block;
+}
 .new-service {
-    width: 300px;
+    /*width: 300px;*/
 }
 .select2-container .existing-service .category {
+    /*width: 300px;*/
+}
+.select2-container.select2-container-multi.new-service.category {
     width: 300px;
+}
+.new-service.description {
+    width: 150px;
+}
+.new-service.price {
+    width: 100px;
+}
+.new-service.time {
+    width: 100px;
+}
+#add-new-service {
+    display: inline-block;
 }
 #calendar {
     width: 500px;
@@ -195,6 +239,18 @@ td.fc-day-number:hover {
 .ion-ios-plus-outline {
     color: #4CA64C;
     margin-left: 30px;
+}
+.ion-ios-plus-outline.service, .ion-ios-plus.service, .ion-ios-checkmark-outline.service, .ion-ios-checkmark.service {
+    font-size: 30px;
+    color: inherit;
+    vertical-align: middle;
+    margin: 0px 10px 0px 10px;
+}
+/*.ion-ios-checkmark.services {
+    display: none;
+}*/
+.ion-ios-plus, .ion-ios-checkmark.service {
+    display: none;
 }
 .ion-android-remove {
     color: #FF4C4C;
