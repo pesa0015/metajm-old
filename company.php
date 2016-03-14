@@ -24,12 +24,12 @@ require 'mysql/query.php';
 </head>
 <body>
 	<header>
-		<div id="company-name"><?=$_SESSION['company']['name'] . ' | ' . $_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></div>
+		<div id="company-name"><span><?=$_SESSION['company']['name']; ?></span> | <span><?=$_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></span></div>
 		<nav id="nav">
-			<a href="logout">Logga ut</a>
 			<a href="company?show=times">Tider</a>
 			<a href="company?show=services">Hantera tjänster</a>
 			<a href="company?show=profile">Min sida</a>
+			<a href="logout">Logga ut <i class="ion-log-out"></i></a>
 		</nav>
 	</header>
 	<?php

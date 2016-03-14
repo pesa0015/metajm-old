@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    width: 90%;
+    width: 70%;
     margin: auto;
 }
 header {
@@ -14,6 +14,14 @@ header {
     display: inline-block;
     /*margin-left: 100px;*/
 }
+#company-name span:first-child {
+    font-size: 15px;
+    color: #ABABAB;
+}
+#company-name span:last-child {
+    font-size: 20px;
+    color: #313131;
+}
 nav {
     display: inline-block;
     float: right;
@@ -21,9 +29,19 @@ nav {
 }
 nav a {
     margin: 0px 10px 0px 10px;
+    color: #5D5061;
+    transition: 0.1s;
 }
 nav a:last-child {
-    margin-right: 0px;
+    margin: 0px 0px 0px 50px;
+}
+nav a:hover {
+    color: #F5F4F7;
+    text-decoration: none;
+}
+.ion-log-out {
+    font-size: 19px;
+    vertical-align: middle;
 }
 #manage-services, #existing_services, #my_services {
     display: inline-block;
@@ -53,7 +71,7 @@ nav a:last-child {
 #calendar {
     width: 500px;
     display: inline-block;
-    margin-left: 330px;
+    /*margin-left: 330px;*/
 }
 #times {
     width: 400px;
