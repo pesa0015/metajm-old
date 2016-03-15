@@ -59,7 +59,11 @@
                         </div>
                     </div>
                 </div>
-                <div id="choose-service"></div>
+                <div id="choose-service">
+                    <select id="choose-stylist" style="color:#FFFFFF;margin:-50px 0px 0px 0px;position:absolute;display:none;">
+                        <option value="" selected>Välj frisör</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>

@@ -28,6 +28,8 @@ $('#select2').select2({
 	  	var data = [{ id: 0.5, text: '0.5' }, { id: 1, text: '1' }, { id: 1.5, text: '1.5' }, { id: 2, text: '2' }, { id: 2.5, text: '2.5' }, { id: 3, text: '3' }];
 	  	function addSelect2(category, time) {
 	  		$(category).select2({
+	  			containerCssClass: 'tpx-select2-container',
+  				dropdownCssClass: 'tpx-select2-drop',
 		  		tags: true,
 		  		maximumSelectionSize: 1,
 		  		tokenSeparators: [","],
@@ -143,10 +145,34 @@ $('#select2').select2({
 			var row = serviceTable.insertRow(rowNr);
 			rowNr--;
 			var category = row.insertCell(0).innerHTML = '<input type="text" id="category-' + rowNr + '" class="new-service category" name="new_service[' + rowNr + '][\'category\']">';
-			var description = row.insertCell(1).innerHTML = '<input type="text" id="description-' + rowNr + '" class="new-service description" name="new_service[' + rowNr + '][\'description\']">';
-			var price = row.insertCell(2).innerHTML = '<input type="text" id="price-' + rowNr + '" class="new-service price" name="new_service[' + rowNr + '][\'price\']">';
-			var time = row.insertCell(3).innerHTML = '<input type="text" id="time-' + rowNr + '" class="new-service time" name="new_service[' + rowNr + '][\'time\']">';
-			addSelect2($('#category-' + rowNr), $('#time-' + rowNr));
+			var description = row.insertCell(1).innerHTML = '<input type="text" id="description-' + rowNr + '" class="new-service description form-control" name="new_service[' + rowNr + '][\'description\']">';
+			var price = row.insertCell(2).innerHTML = '<input type="text" id="price-' + rowNr + '" class="new-service price form-control" name="new_service[' + rowNr + '][\'price\']">';
+			// var time = row.insertCell(3).innerHTML = '<input type="text" id="time-' + rowNr + '" class="new-service time" name="new_service[' + rowNr + '][\'time\']">';
+			var time = row.insertCell(3).innerHTML = '<select id="time-' + rowNr + '" class="new-service time form-control" name="new_service[' + rowNr + '][\'time\']"><option value="0" selected>Välj tid</option><option value="1">1</option><option value="1.5">1,5</option><option value="2">2</option><option value="2.5">2,5</option><option value="3">3</option></select>';
+			addSelect2($('#category-' + rowNr));
 			rowNr++;
 			rowNr++;
 		});
+var xhttp = new XMLHttpRequest();
+function sendData() {
+	xhttp.onreadystatechange = function() {
+    	if (xhttp.readyState == 4 && xhttp.status == 200) {
+    		console.log(xhttp.responseText);
+    		if (parseInt(xhttp.responseText) == 1) {
+    			callback(value);
+    		}
+    	}
+  	}
+	xhttp.open('POST', 'form/' + file, true);
+  	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  	xhttp.send(data);
+}
+document.getElementById('update-services').addEventListener('click', function() {
+	var categoryArray = new Array();
+	var descriptionArray = new Array();
+	var priceArray = new Array();
+	var timeArray = new Array();
+	var categoriesInput = document.getElementsByClassName('new-service category');
+	var start = parseInt(rowNr-categoriesInput.length);
+	console.log(categoriesInput);
+});
