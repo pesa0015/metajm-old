@@ -13,7 +13,7 @@
 					<div id="<?=$schedule[$key]['id']; ?>" class="timestamp minus free" value="<?=date('H:i:s', strtotime($schedule[$key]['timestamp'])); ?>"><?=date('H:i', strtotime($schedule[$key]['timestamp'])); ?> <span class="ion-android-remove"></span></div>
 				<?php endif; ?>
 			<?php else: ?>
-				<div class="timestamp plus" value="<?=$newTimes[$i]; ?>"><?=date('H:i', $newTimes[$i]); ?> <span class="ion-ios-plus-outline"></span></div>
+				<div class="timestamp plus" value="<?=$newTimes[$i]; ?>"><?=substr($newTimes[$i],0,5); ?> <span class="ion-ios-plus-outline"></span></div>
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php else: ?>
