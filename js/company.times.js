@@ -12,7 +12,7 @@ function JsonContainsTime(json, time) {
 function timeTrue(data) {
     var x = document.getElementById('times');
     var div = document.createElement('div');
-    div.innerHTML = data.timestamp.substr(11) + ' <span class="ion-android-remove"></span>';
+    div.innerHTML = data.timestamp.substring(11,16) + ' <span class="ion-android-remove"></span>';
     div.setAttribute('id', data.id);
     div.setAttribute('class', 'timestamp minus');
     div.setAttribute('value', data.timestamp.substr(11));
@@ -22,7 +22,7 @@ function timeTrue(data) {
 function timeFalse(time) {
     var x = document.getElementById('times');
     var div = document.createElement('div');
-    div.innerHTML = time + ' <span class="ion-ios-plus-outline"></span>';
+    div.innerHTML = time.substr(0,5) + ' <span class="ion-ios-plus-outline"></span>';
     div.setAttribute('class', 'timestamp plus');
     div.setAttribute('value', time);
     div.addEventListener('click', manageTime, false);
