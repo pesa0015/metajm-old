@@ -49,6 +49,7 @@ if ($admin[0]['admin'] == 1): ?>
 			<p>Ni har inga tjänster.</p>
 		<?php } ?>
 			<div>
+				<?php if ($admin[0]['admin'] == 1): ?>
 				<span id="add-new-service" class="add-new-service">
 					<i class="ion-ios-plus-outline service"></i>
 					<i class="ion-ios-plus service"></i>
@@ -59,5 +60,6 @@ if ($admin[0]['admin'] == 1): ?>
 					<i class="ion-ios-checkmark service"></i>
 					<span>Uppdatera</span>
 				</button>
+				<?php endif; ?>
 			</div>
 		</div>
