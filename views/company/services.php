@@ -3,9 +3,9 @@ $admin = sqlSelect("SELECT admin FROM companies_employers WHERE id = {$_SESSION[
 if ($admin[0]['admin'] == 1): ?>
 <?php endif; ?>
 	<div id="existing_services">
-		<h1>Nuvarande tjänster</h1>
+		<h1>Hantera tjänster</h1>
 	<?php
-	$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY id;");
+	$services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.id AS category_id, category.name AS category_name FROM `services` INNER JOIN category ON category.id = services.category_id WHERE company_id = {$_SESSION['company']['id']} ORDER BY category_name;");
 	$my_services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.name AS category_name FROM `companies_employers_services` INNER JOIN services INNER JOIN category ON companies_employers_services.service_id = services.id AND services.category_id = category.id WHERE companies_employers_services.employer_id = {$_SESSION['me']['id']};");
 	if ($my_services) {
 		$myServicesArray = array();
@@ -37,9 +37,9 @@ if ($admin[0]['admin'] == 1): ?>
 						if (in_array($service['id'], $myServicesArray)) { ?>
 							<td><i class="ion-checkmark-round"></i></td>
 					<?php } else { ?>
-							<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>">Använd</a></td>
+							<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>" class="use-service">Använd</a></td>
 					<?php }} else { ?>
-						<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>">Använd</a></td>
+						<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>" class="use-service">Använd</a></td>
 					<?php } ?>
 				</tr>
 				<?php $i++; } ?>
@@ -54,16 +54,6 @@ if ($admin[0]['admin'] == 1): ?>
 					<i class="ion-ios-plus service"></i>
 					<span>Lägg till tjänst</span>
 				</span>
-				<script>
-				// document.getElementById('add-new-service').addEventListener('mouseover',function(){
-				// 	document.getElementsByClassName('ion-ios-plus-outline service')[0].style.display = 'none';
-				// 	document.getElementsByClassName('ion-ios-plus service')[0].style.display = 'inline-block';
-				// });
-				// document.getElementById('add-new-service').addEventListener('mouseout',function(){
-				// 	document.getElementsByClassName('ion-ios-plus service')[0].style.display = 'none';
-				// 	document.getElementsByClassName('ion-ios-plus-outline service')[0].style.display = 'inline-block';
-				// });
-				</script>
 				<button type="submit" class="add-new-service">
 					<i class="ion-ios-checkmark-outline service"></i>
 					<i class="ion-ios-checkmark service"></i>
