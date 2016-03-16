@@ -16,6 +16,7 @@ require 'mysql/query.php';
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<?php if (isset($_GET['show']) && $_GET['show'] == 'times') { ?>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/lang/sv.js">
 	<?php } if (isset($_GET['show']) && $_GET['show'] == 'services') { ?>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.css">
 	<link rel="stylesheet" type="text/css" href="vendor/font-awesome.min.css">

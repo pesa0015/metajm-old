@@ -276,6 +276,9 @@ select:-moz-focusring {
 .fc table {
     /*height: 60px;*/
 }
+.fc-basic-view .fc-week-number span {
+    font-weight: 100;
+}
 .fc-row .fc-content-skeleton {
     padding-bottom: 0px;
     margin-top: -5px;

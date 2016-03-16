@@ -39,6 +39,9 @@ var dateChanged = function(){
     $('.fc-toolbar .fc-left h2').text(firstToUpperCase(currentDate.locale('sv').format('ddd D MMM, YYYY')));
 }
 $('#calendar').fullCalendar({
+    lang: 'sv',
+    weekNumbers: true,
+    weekNumberTitle: 'V.',
     height: 550,
     header: {
         left: 'title',
