@@ -73,6 +73,6 @@ if ($admin[0]['admin'] == 1): ?>
 			<!-- <p>Klicka på Använd-knappen, då läggs den tjänsten till din <span class="italic">personliga</span> lista. Du erbjuder alltså den tjänsten som anställd och kunder kommer kunna boka den.</p> -->
 			<p>När du klickar på <img src="img/use_service.png" width="50" alt="">-knappen läggs den tjänsten till din <span class="italic">personliga</span> lista över tjänster som du erbjuder som anställd. Tjänsten blir alltså synlig och bokningsbar på startsidan.</p>
 			<div>Ta bort en tjänst</div>
-			<p>Om du inte vill erbjuda en tjänst kan du ta bort den genom att klicka på <i class="ion-ios-close-empty" style="font-size:25px;vertical-align:middle;"></i> -ikonen.<br />Obs! Tjänsten kommer fortfarande finnas kvar för företaget, dvs dina kolleger kommer kunna använda den.</p>
+			<p>Om du inte vill erbjuda en tjänst kan du ta bort den genom att klicka på <img src="img/close.png" width="10" alt=""> -ikonen.<br />Obs! Tjänsten kommer fortfarande finnas kvar för företaget, dvs dina kolleger kommer kunna använda den.</p>
 			<div>Lägg till ny tjänst (endast administratör)</div>
 		</div>
