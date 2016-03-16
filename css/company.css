@@ -95,6 +95,15 @@ nav a:hover {
 }
 #existing_services table tbody tr td i.ion-checkmark-round {
     color: #4CA64C;
+    margin-right: 10px;
+}
+#existing_services table tbody tr td i:last-child {
+    font-size: 25px;
+    vertical-align: middle;
+}
+#existing_services table tbody tr td i:last-child:hover {
+    color: #FF4C4C;
+    cursor: pointer;
 }
 .use-service {
     background: #f5f4f6;
@@ -104,6 +113,7 @@ nav a:hover {
     border-radius: 5px;
     border: 1px solid #F5F4F7;
     transition: 0.3s;
+    cursor: pointer;
 }
 .use-service:hover {
     text-decoration: none;

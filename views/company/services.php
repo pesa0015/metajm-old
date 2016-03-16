@@ -36,11 +36,11 @@ if ($admin[0]['admin'] == 1): ?>
 					<?php if ($my_services) {
 						// foreach($my_services as $check_service) {
 						if (in_array($service['id'], $myServicesArray)) { ?>
-							<td><i class="ion-checkmark-round"></i></td>
+							<td><i class="ion-checkmark-round"></i><i class="ion-ios-close-empty service" data-id="<?=$service['id']; ?>"></i></td>
 					<?php } else { ?>
-							<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>" class="use-service">Använd</a></td>
+							<td><span class="use-service" data-id="<?=$service['id']; ?>">Använd</span></td>
 					<?php }} else { ?>
-						<td><a href="mobile_api/post/add_my_service.php?service_id=<?=$service['id']; ?>" class="use-service">Använd</a></td>
+						<td><span class="use-service" data-id="<?=$service['id']; ?>">Använd</span></td>
 					<?php } ?>
 				</tr>
 				<?php $i++; } ?>
@@ -73,6 +73,6 @@ if ($admin[0]['admin'] == 1): ?>
 			<!-- <p>Klicka på Använd-knappen, då läggs den tjänsten till din <span class="italic">personliga</span> lista. Du erbjuder alltså den tjänsten som anställd och kunder kommer kunna boka den.</p> -->
 			<p>När du klickar på <img src="img/use_service.png" width="50" alt="">-knappen läggs den tjänsten till din <span class="italic">personliga</span> lista över tjänster som du erbjuder som anställd. Tjänsten blir alltså synlig och bokningsbar på startsidan.</p>
 			<div>Ta bort en tjänst</div>
-			<p>Om du inte vill erbjuda en tjänst kan du ta bort den genom att klicka på<br />Obs! Tjänsten kommer fortfarande finnas kvar för företaget, dvs dina kolleger kommer kunna använda den.</p>
+			<p>Om du inte vill erbjuda en tjänst kan du ta bort den genom att klicka på <i class="ion-ios-close-outline" style="font-weight:normal;"></i> -ikonen.<br />Obs! Tjänsten kommer fortfarande finnas kvar för företaget, dvs dina kolleger kommer kunna använda den.</p>
 			<div>Lägg till ny tjänst (endast administratör)</div>
 		</div>

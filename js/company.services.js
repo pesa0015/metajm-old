@@ -153,17 +153,41 @@ $('#select2').select2({
 			rowNr++;
 			rowNr++;
 		});
+function addUseIcon(value) {
+	var checkIcon = value.previousSibling;
+	var removeIcon = value;
+	var tableCell = value.parentNode;
+	$(checkIcon).remove();
+	$(removeIcon).remove();
+	var el = $('<span class="use-service" data-id="' + value.getAttribute('data-id') + '">Använd</span>');
+	$(tableCell).append(el);
+	el[0].addEventListener('click', function() {
+		sendData('post/use_service.php', 'service_id=' + this.getAttribute('data-id'), addRemoveIcon, this);
+	});
+}
+function addRemoveIcon(value) {
+	var serviceId = value.getAttribute('data-id');
+	var tableCell = value.parentNode;
+	$(value).remove();
+	var check = $('<i class="ion-checkmark-round"></i>');
+	var close = $('<i class="ion-ios-close-empty service" data-id="' + value.getAttribute('data-id') + '"></i>');
+	$(tableCell).append(check);
+	$(tableCell).append(close);
+	close[0].addEventListener('click', function() {
+		sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), addUseIcon, this);
+	});
+}
 var xhttp = new XMLHttpRequest();
-function sendData() {
+function sendData(file, data, callback, value) {
 	xhttp.onreadystatechange = function() {
     	if (xhttp.readyState == 4 && xhttp.status == 200) {
-    		console.log(xhttp.responseText);
+    		// console.log(xhttp.responseText);
     		if (parseInt(xhttp.responseText) == 1) {
     			callback(value);
     		}
     	}
   	}
-	xhttp.open('POST', 'form/' + file, true);
+	xhttp.open('POST', 'mobile_api/' + file, true);
   	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   	xhttp.send(data);
 }
@@ -176,3 +200,21 @@ document.getElementById('update-services').addEventListener('click', function() 
 	var start = parseInt(rowNr-categoriesInput.length);
 	console.log(categoriesInput);
 });
+var removeService = document.getElementsByClassName('ion-ios-close-empty service');
+for (var i = 0; i < removeService.length; i++) {
+	// removeService[i].addEventListener('mouseover', function() {
+	// 	this.className = 'ion-ios-close';
+	// });
+	// removeService[i].addEventListener('mouseout', function() {
+	// 	this.className = 'ion-ios-close-outline';
+	// });
+	removeService[i].addEventListener('click', function() {
+		sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), addUseIcon, this);
+	});
+}
+var useService = document.getElementsByClassName('use-service');
+for (var i = 0; i < useService.length; i++) {
+	useService[i].addEventListener('click', function() {
+		sendData('post/use_service.php', 'service_id=' + this.getAttribute('data-id'), addRemoveIcon, this);
+	});
+}
