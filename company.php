@@ -29,6 +29,7 @@ require 'mysql/query.php';
 	<header>
 		<div id="company-name"><span><?=$_SESSION['company']['name']; ?></span><span><i class="ion-person"></i><?=$_SESSION['me']['first_name'] . ' ' . $_SESSION['me']['last_name']; ?></span></div>
 		<nav id="nav">
+			<a href="company?show=todo">Att göra</a>
 			<a href="company?show=times">Tider</a>
 			<a href="company?show=services">Hantera tjänster</a>
 			<a href="company?show=opening_hours">Öppettider</a>
@@ -38,6 +39,12 @@ require 'mysql/query.php';
 	</header>
 	<?php
 	switch ($_GET['show']) {
+		case 'todo':
+			$todos = sqlSelect("SELECT schedule.id, timestamp, customers.first_name AS customer_f_name, customers.last_name AS customer_l_name, customers.mail, category.name, services.price, companies_employers.first_name AS stylists_f_name, companies_employers.last_name AS stylists_l_name FROM `schedule` INNER JOIN customers INNER JOIN services INNER JOIN category INNER JOIN companies_employers ON schedule.customer_id = customers.id AND schedule.service_id = category.id AND schedule.service_id = services.id AND schedule.employer_id = companies_employers.id WHERE DATE(`timestamp`) = CURDATE() AND schedule.company_id = {$_SESSION['company']['id']};");
+			$times = sqlSelect("SELECT timestamp FROM `schedule` WHERE DATE(`timestamp`) = CURDATE() AND company_id = {$_SESSION['company']['id']} ORDER BY `timestamp` ASC;");
+			require 'views/company/todo.php';
+			$script = array('js/company.todo.js');
+			break;
 		case 'times':
 			$schedule = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(`timestamp`) = CURDATE() AND company_id = {$_SESSION['company']['id']};");
 			$times = array();

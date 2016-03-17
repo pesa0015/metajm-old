@@ -55,6 +55,56 @@ nav a:hover {
     font-size: 19px;
     vertical-align: middle;
 }
+/*
+ * Todo page
+ *
+ */
+#card-container {
+    width: 500px;
+}
+.card {
+    padding: 30px 30px 30px 30px;
+    border: 2px solid #f5f4f6;
+}
+.card-top {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f5f4f6;
+}
+.time {
+    display: inline-block;
+    width: 50%;
+}
+.time i.ion-ios-clock-outline, .customer div i.ion-android-happy, .customer div i.ion-ios-email, .stylists div i.ion-person {
+    font-size: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.time span {
+
+}
+.style-info {
+    /*float: right;*/
+    /*margin-right: 30px;*/
+}
+.service-name {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+.style-info,
+.stylists,
+.stylists div:first-child,
+.stylists div:last-child,
+.customer div:first-child,
+.customer-mail div i.ion-ios-email,
+.customer-mail div:last-child {
+    display: inline-block;
+}
+.customer-name {
+    /*width: 50%;*/
+    display: block;
+}
 #manage-services, #existing_services, #my_services {
     /*display: inline-block;*/
 }
