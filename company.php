@@ -31,6 +31,7 @@ require 'mysql/query.php';
 		<nav id="nav">
 			<a href="company?show=times">Tider</a>
 			<a href="company?show=services">Hantera tjänster</a>
+			<a href="company?show=opening_hours">Öppettider</a>
 			<a href="company?show=profile">Min sida</a>
 			<a href="logout">Logga ut <i class="ion-log-out"></i></a>
 		</nav>
@@ -57,6 +58,10 @@ require 'mysql/query.php';
 		case 'services':
 			require 'views/company/services.php';
 			$script = array('https://code.jquery.com/jquery-2.1.4.min.js', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.js', 'js/company.services.js');
+			break;
+		case 'opening_hours':
+			require 'views/company/opening_hours.php';
+			$script = array('js/company.opening_hours.js');
 			break;
 		case 'profile':
 			require 'views/company/profile.php';
