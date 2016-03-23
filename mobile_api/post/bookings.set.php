@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// echo "SELECT start FROM bookings WHERE start >= '{$start->format('Y-m-d H:i')}' AND end <= '{$end->format('Y-m-d H:i')}';";
 		// die;
 		if ($timeAlreadyBooked) {
+			$end = $end->modify('+1 minute');
 			echo json_encode(array('timeBooked' => $timeAlreadyBooked,'start' => $start->format('H:i'),'end' => $end->format('H:i')));
 			die;
 		}
