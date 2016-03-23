@@ -4,6 +4,117 @@ body {
     width: 70%;
     margin: auto;
 }
+.md-modal {
+    /*position: fixed;*/
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 630px; 
+    min-width: 320px; 
+    height: auto;
+    height: 100%;
+    z-index: 2000;
+    /*visibility: hidden;*/
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.md-content {
+    color: #fff;
+    background: #e74c3c; 
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+    width: 50%;
+    top: 10%;
+}
+#md-top {
+    margin-top: 35px;
+}
+#md-middle {
+    margin: -30px 0px 30px 0px;
+}
+.md-content > div {
+    margin: 10px 0px 10px 0px;
+}
+.md-content div:nth-of-type(1) .ion-ios-calendar-outline {
+    margin-right: 5px;
+}
+.md-content div:nth-of-type(1) .ion-ios-clock-outline {
+    margin: 0px 5px 0px 5px;
+}
+.md-content div:last-child label {
+    font-weight: 100;
+}
+.md-content div:last-child input[type=text] {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+#inner {
+    
+}
+#left {
+    display: inline-block;
+}
+#right {
+    display: inline-block;
+    float: right;
+    margin-right: 40px;
+}
+#customer-information {
+    opacity: 0.3;
+}
+/*.md-content div:nth-of-type(1) .ion-android-calendar,
+.md-content div:nth-of-type(2) .ion-ios-clock-outline {
+    font-size: 35px;
+    vertical-align: middle;
+    margin-right: 10px;
+}*/
+/*.md-content div:nth-of-type(3) label:nth-of-type(1) {
+    display: block;
+    text-align: right;
+    width: 200px;
+}
+.md-content div:nth-of-type(3) label:nth-of-type(1) + .ion-android-happy {
+    float: left;
+    padding-left: 30px;
+}
+#personnr {
+    width: 110px;
+    float: right;
+    margin-right: 35px;
+}
+.md-content div:nth-of-type(3) label:nth-of-type(2) {
+    margin-top: 50px;
+}
+.md-content div:nth-of-type(3) label {
+    display: block;
+    margin: 10px 0px 10px 0px;
+}*/
+.md-show.md-effect-12 ~ .md-overlay {
+    background: #5D5061;
+    /*background: #e74c3c;*/
+}
+.md-button {
+    background: transparent;
+    /*border: 1px solid #FFFFFF;*/
+    border: 1px solid #8d8490;
+    padding: 10px 20px 10px 20px;
+    transition: 0.3s;
+}
+.md-button:last-child {
+    margin-top: 30px;
+}
+.md-button:hover {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+}
 .italic {
     font-style: italic;
 }
@@ -236,6 +347,9 @@ nav a:hover {
 .select2-container .select2-choice .select2-arrow {
     /*display: none;*/
 }
+.select2-search-choice-close {
+    background-image: none;
+}
 /*b[role=presentation] {
     display: none;
 }*/
@@ -385,7 +499,7 @@ td.fc-day-number:hover {
     color: #4CA64C;
     margin-left: 30px;
 }
-.ion-ios-plus-outline.service, .ion-ios-plus.service, .ion-ios-checkmark-outline.service, .ion-ios-checkmark.service {
+.ion-ios-plus-outline.service, .ion-ios-plus.service, .ion-ios-checkmark-outline.service, .ion-ios-checkmark.service, .ion-edit {
     font-size: 30px;
     color: inherit;
     vertical-align: middle;
@@ -432,6 +546,7 @@ td.fc-day-number:hover {
 }
 #days {
     display: inline-block;
+    margin: 35px 0px 35px 0px;
 }
 #start {
     position: absolute;
@@ -480,4 +595,12 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+#settings-left {
+    display: inline-block;
+}
+#settings-right {
+    display: inline-block;
+    float: right;
+    margin: 30px 150px 0px 0px;
 }

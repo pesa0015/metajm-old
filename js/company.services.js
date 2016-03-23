@@ -144,11 +144,11 @@ $('#select2').select2({
 		newService.addEventListener('click', function() {
 			var row = serviceTable.insertRow(rowNr);
 			rowNr--;
-			var category = row.insertCell(0).innerHTML = '<input type="text" id="category-' + rowNr + '" class="new-service category" name="new_service[' + rowNr + '][\'category\']">';
-			var description = row.insertCell(1).innerHTML = '<input type="text" id="description-' + rowNr + '" class="new-service description form-control" name="new_service[' + rowNr + '][\'description\']">';
-			var price = row.insertCell(2).innerHTML = '<input type="text" id="price-' + rowNr + '" class="new-service price form-control" name="new_service[' + rowNr + '][\'price\']">';
+			var category = row.insertCell(0).innerHTML = '<input type="text" id="category-' + rowNr + '" class="new-service category" name="new_service[][\'category\']">';
+			var description = row.insertCell(1).innerHTML = '<input type="text" id="description-' + rowNr + '" class="new-service description form-control" name="new_service[][\'description\']">';
+			var price = row.insertCell(2).innerHTML = '<input type="text" id="price-' + rowNr + '" class="new-service price form-control" name="new_service[][\'price\']">';
 			// var time = row.insertCell(3).innerHTML = '<input type="text" id="time-' + rowNr + '" class="new-service time" name="new_service[' + rowNr + '][\'time\']">';
-			var time = row.insertCell(3).innerHTML = '<select id="time-' + rowNr + '" class="new-service time form-control" name="new_service[' + rowNr + '][\'time\']"><option value="0" selected>Välj tid</option><option value="1">1</option><option value="1.5">1,5</option><option value="2">2</option><option value="2.5">2,5</option><option value="3">3</option></select>';
+			var time = row.insertCell(3).innerHTML = '<select id="time-' + rowNr + '" class="new-service time form-control" name="new_service[][\'time\']"><option value="0" selected>Välj tid</option><option value="1">1</option><option value="1.5">1,5</option><option value="2">2</option><option value="2.5">2,5</option><option value="3">3</option></select>';
 			addSelect2($('#category-' + rowNr));
 			rowNr++;
 			rowNr++;
@@ -177,6 +177,9 @@ function addRemoveIcon(value) {
 		sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), addUseIcon, this);
 	});
 }
+function newServiceAdded() {
+	location.reload(true);
+}
 var xhttp = new XMLHttpRequest();
 function sendData(file, data, callback, value) {
 	xhttp.onreadystatechange = function() {
@@ -196,18 +199,33 @@ document.getElementById('update-services').addEventListener('click', function() 
 	var descriptionArray = new Array();
 	var priceArray = new Array();
 	var timeArray = new Array();
-	var categoriesInput = document.getElementsByClassName('new-service category');
+	// var categoriesInput = document.getElementsByClassName('new-service category');
+	var categoriesInput = document.getElementsByName('new_service[][\'category\']');
+	var descriptionInput = document.getElementsByName('new_service[][\'description\']');
+	var priceInput = document.getElementsByName('new_service[][\'price\']');
+	var timeInput = document.getElementsByName('new_service[][\'time\']');
 	var start = parseInt(rowNr-categoriesInput.length);
-	console.log(categoriesInput);
+	var array = [];
+	var currentService = {};
+	if (categoriesInput.length > 0) {
+		for (var i = 0; i < categoriesInput.length; i++) {
+			// if (parseInt(categoriesInput[i].value) > 0 || categoriesInput[i].value !== '' && descriptionInput[i].value !== '' && priceInput[i].value !== '' && parseInt(timeInput[i]).value >= 1 && parseInt(timeInput[i]).value <= 3) {
+				var services = {};
+				services.category = categoriesInput[i].value;
+				services.description = descriptionInput[i].value;
+				services.price = priceInput[i].value;
+				services.time = timeInput[i].value;
+				array.push(services);
+			// }
+		}
+		sendData('post/new_service.php', 'services=' + JSON.stringify(array), newServiceAdded);
+	}
+	else {
+		// console.log(0);
+	}
 });
 var removeService = document.getElementsByClassName('ion-ios-close-empty service');
 for (var i = 0; i < removeService.length; i++) {
-	// removeService[i].addEventListener('mouseover', function() {
-	// 	this.className = 'ion-ios-close';
-	// });
-	// removeService[i].addEventListener('mouseout', function() {
-	// 	this.className = 'ion-ios-close-outline';
-	// });
 	removeService[i].addEventListener('click', function() {
 		sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), addUseIcon, this);
 	});

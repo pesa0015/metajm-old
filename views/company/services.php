@@ -56,21 +56,17 @@ if ($admin[0]['admin'] == 1): ?>
 					<i class="ion-ios-plus service"></i>
 					<span>Lägg till tjänst</span>
 				</span>
-				<button type="submit" class="add-new-service">
+				<button type="submit" id="update-services" class="add-new-service">
 					<i class="ion-ios-checkmark-outline service"></i>
 					<i class="ion-ios-checkmark service"></i>
-					<span id="update-services">Uppdatera</span>
+					<span>Uppdatera</span>
 				</button>
 				<?php endif; ?>
 			</div>
 		</div>
 		<div id="add-service-instruction">
 			<h3>Hur gör man?</h3>
-			<!-- <ul>
-				<li>Använd en tjänst</li>
-			</ul> -->
 			<div>Använd en tjänst</div>
-			<!-- <p>Klicka på Använd-knappen, då läggs den tjänsten till din <span class="italic">personliga</span> lista. Du erbjuder alltså den tjänsten som anställd och kunder kommer kunna boka den.</p> -->
 			<p>När du klickar på <img src="img/use_service.png" width="50" alt="">-knappen läggs den tjänsten till din <span class="italic">personliga</span> lista över tjänster som du erbjuder som anställd. Tjänsten blir alltså synlig och bokningsbar på startsidan.</p>
 			<div>Ta bort en tjänst</div>
 			<p>Om du inte vill erbjuda en tjänst kan du ta bort den genom att klicka på <img src="img/close.png" width="10" alt=""> -ikonen.<br />Obs! Tjänsten kommer fortfarande finnas kvar för företaget, dvs dina kolleger kommer kunna använda den.</p>

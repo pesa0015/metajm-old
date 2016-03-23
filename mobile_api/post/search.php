@@ -29,11 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// echo json_encode(array('id' => $services['id'], 'name' => $services['name']));
 			}
 		}
+		if ($search == 'my_services') {
+			$my_services = sqlSelect("SELECT services.id, services.name AS service_name, price, time, category.name AS category_name FROM `companies_employers_services` INNER JOIN services INNER JOIN category ON companies_employers_services.service_id = services.id AND services.category_id = category.id WHERE companies_employers_services.employer_id = {$_SESSION['me']['id']} AND category.name LIKE '%{$term}%';");
+			if ($my_services)
+				echo json_encode($my_services);
+		}
 		if ($search == 'timestamp' && !empty($_POST['timestamp'])) {
 			$date = sqlEscape($_POST['timestamp']);
 			$times = sqlSelect("SELECT schedule.id, timestamp, booked, customers.first_name, customers.last_name, customers.mail FROM `schedule` LEFT JOIN customers ON schedule.customer_id = customers.id WHERE DATE(timestamp) = '{$date}' AND company_id = {$_SESSION['company']['id']} ORDER BY timestamp;");
 			if ($times)
 				echo json_encode($times);
+			else
+				echo 0;
+		}
+		if ($search == 'personnr') {
+			$personnr = sqlEscape($_POST['term']);
+			$customer = sqlSelect("SELECT id, first_name, last_name, mail, tel FROM customers WHERE person_nr = '{$personnr}';");
+			if ($customer)
+				echo json_encode($customer);
 			else
 				echo 0;
 		}

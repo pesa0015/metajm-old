@@ -27,9 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									'id' => $user_exists[0]['company_id'],
 									'name' => $user_exists[0]['Bolagsnamn']
 									);
-			// $_SESSION['company_id'] = $company_exists[0]['id'];
-			// $_SESSION['company'] = $company_exists[0]['Bolagsnamn'];
-			header('Location: ../../company?show=times');
+			header('Location: ../../company/todo');
 		}
 		else
 			header('Location: ../../login');
