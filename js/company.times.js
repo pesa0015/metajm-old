@@ -26,32 +26,47 @@ var timesDiv = document.getElementById('times');
 function bookedComplete(value) {
     // JSON.parse(value);
 }
-function timeTrueNoIcon(time) {
-    var x = document.getElementById('times');
-    var div = document.createElement('div');
+function timeTrueNoIcon(time, id) {
+    var x = document.getElementById(id).firstChild;
+    var divTimes = document.createElement('div');
     // div.innerHTML = data.timestamp.substring(11,16) + ' <span class="ion-android-remove"></span>';
-    div.innerHTML = time;
+    divTimes.innerHTML = time;
     // div.setAttribute('id', time.id);
-    div.setAttribute('class', 'timestamp minus');
+    // div.setAttribute('class', 'timestamp minus');
     // div.setAttribute('value', data.timestamp.substr(11));
     // div.setAttribute('value', time);
     // div.addEventListener('click', time, false);
     // div.addEventListener('click', removeBookedTime, false);
-    x.appendChild(div);
+    x.appendChild(divTimes);
 }
-function timeTrue(time, bookingId) {
+function timeTrue(time) {
     var x = document.getElementById('times');
-    var div = document.createElement('div');
+    var divMain = document.createElement('div');
+    var divTimes = document.createElement('div');
+    var divTimesInner = document.createElement('div');
+    var divCustomer = document.createElement('div');
+    var service = document.createElement('span');
+    var customer = document.createElement('span');
     // div.innerHTML = data.timestamp.substring(11,16) + ' <span class="ion-android-remove"></span>';
-    div.innerHTML = time + ' <span class="ion-android-remove"></span>';
-    div.setAttribute('id', bookingId);
-    div.setAttribute('class', 'timestamp minus');
+    service.innerHTML = time.name;
+    customer.innerHTML = time.first_name + ' ' + time.last_name;
+    divTimes.setAttribute('class', 'times');
+    divTimesInner.innerHTML = time.start.substring(11,16);
+    divCustomer.setAttribute('class', 'customer');
+    divMain.setAttribute('id', time.booking_id);
+    divMain.setAttribute('class', 'timestamp minus');
     // div.setAttribute('value', data.timestamp.substr(11));
-    div.setAttribute('value', time);
+    divMain.setAttribute('value', time.start.substring(11,16));
     // div.addEventListener('click', time, false);
-    div.addEventListener('click', manageTime, false);
+    divMain.addEventListener('click', manageTime, false);
     // div.addEventListener('click', removeBookedTime, false);
-    x.appendChild(div);
+    divCustomer.appendChild(service);
+    divCustomer.appendChild(customer);
+    divTimes.appendChild(divTimesInner);
+    divMain.appendChild(divTimes);
+    divMain.appendChild(divCustomer);
+    x.appendChild(divMain);
+    return time.booking_id;
 }
 function timeFalse(time) {
     var timesDiv = document.getElementById('times');
@@ -137,12 +152,12 @@ function getHoursInterval(day, open, timesBooked) {
                         var end = new Date(time.end);
                         var hourDiff = Math.abs(start - end) / 36e5;
                         // console.log(hourDiff);
-                        timeTrue(time.start.substring(11,16),time.id);
+                        var findDiv = timeTrue(time);
                         for (var booked = 1; booked < hourDiff*2; booked++) {
                             i++;
                             // console.log(hours[i].substring(11));
                             // timeTrue(hours[i].substring(11));
-                            timeTrueNoIcon(hours[i].substring(11));
+                            timeTrueNoIcon(hours[i].substring(11),findDiv);
                         }
                     }
                     else {

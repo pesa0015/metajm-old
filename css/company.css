@@ -1,3 +1,10 @@
+/*
+    border-right: 1px solid silver;
+    display: block;
+    width: 90px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+*/
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -401,6 +408,23 @@ select:-moz-focusring {
 }
 .minus {
     color: #eae6ec;
+}
+.minus div {
+    /*border-right: 2px solid silver;*/
+    /*width: 60px;*/
+}
+.times {
+    border-right: 2px solid silver;
+    display: inline-block;
+    padding-right: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.customer {
+    display: inline-block;
+}
+.customer span:first-child {
+    margin-right: 50px;
 }
 .plus {
     color: #5d5061;
