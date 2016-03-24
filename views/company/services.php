@@ -14,8 +14,11 @@ $admin = sqlSelect("SELECT admin FROM companies_employers WHERE id = {$_SESSION[
 	}
 		// $services = sqlSelect("SELECT services.id, services.name, services.price, services.time, services.category_id FROM services INNER JOIN companies_services ON services.id = companies_services.service_id WHERE companies_services.company_id = {$_SESSION['company_id']};");
 		if ($services) { ?>
-			<table id="service">
+			<table id="services">
 				<tr>
+					<?php if ($admin[0]['admin'] == 1): ?>
+						<th>Ändra</th>
+					<?php endif; ?>
 					<th>Tjänst</th>
 					<th>Kategori</th>
 					<th>Pris (sek)</th>
@@ -28,6 +31,9 @@ $admin = sqlSelect("SELECT admin FROM companies_employers WHERE id = {$_SESSION[
 				$i = 0;
 				?>
 				<tr>
+					<?php if ($admin[0]['admin'] == 1): ?>
+						<td><i class="ion-edit"></i></td>
+					<?php endif; ?>
 					<td><?=$service['category_name']; ?></td>
 					<td><?=$service['service_name']; ?></td>
 					<td><?=$service['price']; ?></td>
@@ -55,13 +61,14 @@ $admin = sqlSelect("SELECT admin FROM companies_employers WHERE id = {$_SESSION[
 					<i class="ion-ios-plus service"></i>
 					<span>Lägg till tjänst</span>
 				</span>
-				<button type="submit" id="update-services" class="add-new-service">
+				<button type="submit" id="update-services" class="add-new-service" style="display:none;">
 					<i class="ion-ios-checkmark-outline service"></i>
 					<i class="ion-ios-checkmark service"></i>
 					<span>Uppdatera</span>
 				</button>
 				<?php endif; ?>
 			</div>
+			<table id="new-services"></table>
 		</div>
 		<div id="add-service-instruction">
 			<h3>Hur gör man?</h3>

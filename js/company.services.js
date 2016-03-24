@@ -74,7 +74,7 @@ $('#select2').select2({
 	  	}
 	  	var newService = document.getElementById('add-new-service');
 	  	var showServiceTable = document.getElementById('show-service-table');
-	  	var serviceTable = document.getElementById('service');
+	  	var serviceTable = document.getElementById('new-services');
 	  	var existingServices = document.getElementsByClassName('existing-service category');
 	  	var existingServicesTime = document.getElementsByClassName('existing-service time');
 	  	function sendValue(element) {
@@ -141,16 +141,19 @@ $('#select2').select2({
 	  		// serviceTable.style.display = 'block';
 	  		// addSelect2($('#category-1'), $('#time-1'));
 	  	// });
+		var rowNr = 0;
+		var updateButton = document.getElementById('update-services');
 		newService.addEventListener('click', function() {
+			if (updateButton.style.display == 'none')
+				updateButton.style.display = 'inline-block';
 			var row = serviceTable.insertRow(rowNr);
-			rowNr--;
+			// rowNr--;
 			var category = row.insertCell(0).innerHTML = '<input type="text" id="category-' + rowNr + '" class="new-service category" name="new_service[][\'category\']">';
 			var description = row.insertCell(1).innerHTML = '<input type="text" id="description-' + rowNr + '" class="new-service description form-control" name="new_service[][\'description\']">';
 			var price = row.insertCell(2).innerHTML = '<input type="text" id="price-' + rowNr + '" class="new-service price form-control" name="new_service[][\'price\']">';
-			// var time = row.insertCell(3).innerHTML = '<input type="text" id="time-' + rowNr + '" class="new-service time" name="new_service[' + rowNr + '][\'time\']">';
 			var time = row.insertCell(3).innerHTML = '<select id="time-' + rowNr + '" class="new-service time form-control" name="new_service[][\'time\']"><option value="0" selected>Välj tid</option><option value="1">1</option><option value="1.5">1,5</option><option value="2">2</option><option value="2.5">2,5</option><option value="3">3</option></select>';
 			addSelect2($('#category-' + rowNr));
-			rowNr++;
+			// rowNr++;
 			rowNr++;
 		});
 function addUseIcon(value) {
@@ -194,7 +197,7 @@ function sendData(file, data, callback, value) {
   	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   	xhttp.send(data);
 }
-document.getElementById('update-services').addEventListener('click', function() {
+updateButton.addEventListener('click', function() {
 	var categoryArray = new Array();
 	var descriptionArray = new Array();
 	var priceArray = new Array();

@@ -258,47 +258,61 @@ nav a:hover {
     /*margin-right: 30%;*/
     display: inline-block;
 }
-#existing_services table tbody tr {
+#services tbody tr {
     border-top: 1px solid #f5f4f6;
 }
 /*#existing_services table tbody tr td {
     margin-top: 30px;
 }*/
-#existing_services table tbody tr:first-child {
+#services tbody tr:first-child {
     color: #ABABAB;
     border-top: 1px solid #f5f4f6;
 }
-#existing_services table tbody tr th {
-    padding: 10px 0px 10px 50px;
+#services tbody tr th {
+    padding: 10px 0px 10px 25px;
 }
-#existing_services table tbody tr th, #existing_services table tbody tr td {
+#services tbody tr th, #services tbody tr td {
     /*padding-left: 50px;*/
 }
-#existing_services table tbody tr th:first-child, #existing_services table tbody tr td:first-child {
+#services tbody tr th:first-child, #services tbody tr td:first-child {
     padding-left: 0px;
 }
-#existing_services table tbody tr td {
+#services tbody tr td {
     /*padding-top: 30px;*/
-    padding: 15px 0px 15px 50px;
+    padding: 15px 0px 15px 25px;
 }
-#existing_services table tbody tr th:last-child, #existing_services table tbody tr td:last-child {
+#services tbody tr th:last-child, #services tbody tr td:last-child {
     padding-left: 30px;
 }
-#existing_services table tbody tr td:last-child {
+#services tbody tr td:last-child {
     /*padding-top: 0px;*/
     text-align: center;
 }
-#existing_services table tbody tr td i.ion-checkmark-round {
+#services tbody tr td i.ion-checkmark-round {
     color: #4CA64C;
     margin-right: 10px;
 }
-#existing_services table tbody tr td i:last-child {
-    font-size: 25px;
+#services tbody tr td i.ion-edit {
+    font-size: 19px;
+    color: #ABABAB;
     vertical-align: middle;
 }
-#existing_services table tbody tr td i:last-child:hover {
-    color: #FF4C4C;
+#services tbody tr td i.ion-edit:hover {
+    /*color: #FF4C4C;*/
+    color: #000000;
     cursor: pointer;
+}
+/*#new-services tbody tr th {
+
+}
+#new-services tbody tr th:first-child {
+
+}*/
+#new-services tbody tr td input:not(.select2-input), #new-services tbody tr td select {
+    margin: 30px 0px 30px 30px;
+}
+#new-services tbody tr td:first-child {
+    margin: 0;
 }
 .use-service {
     background: #f5f4f6;
@@ -319,8 +333,8 @@ nav a:hover {
     margin-bottom: 25px;
     display: inline-block;
 }
-#service + div {
-    
+#services + div {
+    margin: 30px 0px 30px 0px;
 }
 #add-service-instruction {
     display: inline-block;
