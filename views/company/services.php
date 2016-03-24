@@ -1,7 +1,6 @@
 <?php
 $admin = sqlSelect("SELECT admin FROM companies_employers WHERE id = {$_SESSION['me']['id']} AND company_id = {$_SESSION['company']['id']}");
-if ($admin[0]['admin'] == 1): ?>
-<?php endif; ?>
+?>
 	<div id="existing_services">
 		<h1>Hantera tjänster</h1>
 	<?php
