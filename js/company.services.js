@@ -224,15 +224,18 @@ document.getElementById('update-services').addEventListener('click', function() 
 		// console.log(0);
 	}
 });
-var removeService = document.getElementsByClassName('ion-ios-close-empty service');
-for (var i = 0; i < removeService.length; i++) {
-	removeService[i].addEventListener('click', function() {
-		sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), addUseIcon, this);
-	});
+function useServiceChecked(checkbox) {
+	var n = noty({theme:'relax',layout:'topCenter',type:'alert',text:'Tjänsten har lagts till din lista'});
 }
-var useService = document.getElementsByClassName('use-service');
-for (var i = 0; i < useService.length; i++) {
-	useService[i].addEventListener('click', function() {
-		sendData('post/use_service.php', 'service_id=' + this.getAttribute('data-id'), addRemoveIcon, this);
+function dontUseServiceChecked(checkbox) {
+	var n = noty({theme:'relax',layout:'topCenter',type:'information',text:'Tjänsten har <span class="bold">tagits bort</span> från din lista'});
+}
+var servicesCheckbox = document.getElementsByClassName('service-checkbox');
+for (var i = 0; i < servicesCheckbox.length; i++) {
+	servicesCheckbox[i].addEventListener('click', function() {
+		if (this.checked)
+			sendData('post/use_service.php', 'service_id=' + this.getAttribute('data-id'), useServiceChecked, this);
+		else
+			sendData('post/dont_use_service.php', 'service_id=' + this.getAttribute('data-id'), dontUseServiceChecked, this);
 	});
 }
