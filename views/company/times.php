@@ -25,6 +25,7 @@ $my_services = sqlSelect("SELECT services.id, services.name AS service_name, pri
 			<div id="md-middle">
 				<label>Personnr</label>
 				<input type="text" id="personnr" class="form-control" max-length="11" style="width:110px;display:inline-block;margin-left:24px;">
+				<p>ååååmmddnnnn</p>
 			</div>
 			<div id="customer-information">
 				<label>Förnamn</label><input type="text" id="fname" class="form-control" style="width:200px;">

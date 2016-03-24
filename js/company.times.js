@@ -419,10 +419,10 @@ document.getElementById('personnr').addEventListener('input', function() {
     // }
 });
 function bookTime(timestamp) {
-    console.log(timestamp);
     var date = timestamp.substring(0,10);
     var time = timestamp.substring(11);
-    document.getElementById('modal-12').className += ' md-show';
+    var modalDialog = document.getElementById('modal-12');
+    modalDialog.className += ' md-show';
     document.getElementById('md-date').innerHTML = date;
     document.getElementById('md-time').innerHTML = time;
     document.getElementById('book').addEventListener('click', function() {
@@ -432,17 +432,24 @@ function bookTime(timestamp) {
         booking.personnr = document.getElementById('personnr').value;
         booking.fname = document.getElementById('fname').value;
         booking.lname = document.getElementById('lname').value;
+        booking.mail = document.getElementById('mail').value;
+        booking.tel = document.getElementById('tel').value;
         booking.service = parseInt(document.getElementById('select2').value);
         // console.log('booking=' + JSON.stringify(booking));
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
+                console.log(xhttp.responseText);
+                console.log(booking);
                 if (isNaN(parseInt(xhttp.responseText))) {
                     var error = JSON.parse(xhttp.responseText);
                     var n = noty({layout:'center',type:'error',text:'Det gick inte att boka kl ' + error.start + '-' + error.end + ' eftersom ' + error.timeBooked[0].start.substring(11,16) + ' är upptaget'});
                 }
                 else {
-                    location.reload(true);
+                    // location.reload(true);
+                    getOpeningHours(date);
+                    $(modalDialog).removeClass('md-show');
+                    var n = noty({layout:'center',type:'success',text:'Bokning genomförd<i class="ion-checkmark-circled" style="margin-left:5px;"></i>'});
                 }
             }
         }

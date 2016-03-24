@@ -103,6 +103,11 @@ body {
     display: block;
     margin: 10px 0px 10px 0px;
 }*/
+#md-middle p {
+    text-align: right;
+    margin-right: 40px;
+    padding: 0;
+}
 .md-show.md-effect-12 ~ .md-overlay {
     background: #5D5061;
     /*background: #e74c3c;*/
@@ -179,21 +184,41 @@ nav a:hover {
  */
 #card-container {
     width: 500px;
+    display: inline-block;
 }
+/*#times-container {
+    display: inline-block;
+    float: right;
+}*/
 .card {
     padding: 30px 30px 30px 30px;
     border: 2px solid #f5f4f6;
+    margin-bottom: 30px;
+}
+.card:last-child {
+    margin-bottom: 0px;
+}
+.card-even {
+
+}
+.card-even .card-top {
+    border-bottom: 2px solid #f5f4f6;
+}
+.card-odd {
+    background: #f5f4f6;
+}
+.card-odd .card-top {
+    border-bottom: 2px solid #FFFFFF;
 }
 .card-top {
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #f5f4f6;
 }
 .time {
     display: inline-block;
     width: 50%;
 }
-.time i.ion-ios-clock-outline, .customer div i.ion-android-happy, .customer div i.ion-ios-email, .stylists div i.ion-person {
+.time i.ion-ios-clock-outline, .customer div i.ion-android-happy, .customer div i.ion-ios-email, .stylists div i.ion-person, .customer-tel div i.ion-ios-telephone {
     font-size: 25px;
     margin-right: 10px;
     vertical-align: middle;
@@ -216,7 +241,9 @@ nav a:hover {
 .stylists div:last-child,
 .customer div:first-child,
 .customer-mail div i.ion-ios-email,
-.customer-mail div:last-child {
+.customer-mail div:last-child,
+.customer-tel div i.ion-ios-telephone,
+.customer-tel div:last-child {
     display: inline-block;
 }
 .customer-name {

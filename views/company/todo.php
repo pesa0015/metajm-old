@@ -1,13 +1,14 @@
 <h1>Dagens händelser</h1>
 <div id="card-container">
 	<?php if ($todos): ?>
+		<?php $i = 0; ?>
 		<?php foreach($todos as $todo): ?>
-			<div class="card">
+			<div class="card card-<?=($i % 2 == 0) ? 'even' : 'odd'; ?>">
 				<div class="card-top">
 					<div class="service-name"><?=$todo['name']; ?></div>
 					<div class="time">
 						<i class="ion-ios-clock-outline"></i>
-						<span><?=date('H:i', strtotime($todo['timestamp'])); ?> - 10:30</span>
+						<span><?=date('H:i', strtotime($todo['start'])) . ' - ' . date('H:i', strtotime($todo['end'])); ?></span>
 					</div>
 					<div class="style-info">
 						<div class="stylists">
@@ -25,19 +26,16 @@
 							<div><i class="ion-ios-email"></i></div>
 							<div><?=$todo['mail']; ?></div>
 						</div>
+						<div class="customer-tel">
+							<div><i class="ion-ios-telephone"></i></div>
+							<div><?=$todo['tel']; ?></div>
+						</div>
 					</div>
 				</div>
 			</div>
+		<?php $i++; ?>
 		<?php endforeach; ?>
 	<?php else: ?>
 		<h3>Det finns inga bokningar idag.</h3>
-	<?php endif; ?>
-</div>
-<div id="times-container">
-	<?php if ($times): ?>
-		<?php foreach($times as $time): ?>
-		<?php endforeach; ?>
-	<?php else: ?>
-		<h3>Schemat är tomt.</h3>
 	<?php endif; ?>
 </div>
