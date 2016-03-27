@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$insert = rtrim($insert, ', ');
 		$insert .= ';';
 		if (sqlAction($insert))
-			echo 1;
+			echo json_encode(array(1,null));
 		else
-			echo 0;
+			echo json_encode(array(0,null));
 		die;
 	}
 }

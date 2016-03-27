@@ -302,6 +302,16 @@ nav a:hover {
     color: #000000;
     cursor: pointer;
 }
+input[class^="edit-service-"], select[class^="edit-service-"] {
+    display: none;
+    width: 100px;
+}
+#services tbody tr td:nth-of-type(4) input, #services tbody tr td:nth-of-type(5) select {
+    width: 70px;
+}
+button[id^="edit-service-"] {
+    display: none;
+}
 /*#new-services tbody tr th {
 
 }
@@ -397,6 +407,15 @@ nav a:hover {
 }
 .select2-search-choice-close {
     background-image: none;
+}
+.select2-results .select2-selected {
+    display: block;
+}
+.tpx-select2-container.select2-container-multi .select2-choices {
+    width: 110px;
+}
+.select2-container-multi .select2-choices .select2-search-field {
+    display: none;
 }
 /*b[role=presentation] {
     display: none;

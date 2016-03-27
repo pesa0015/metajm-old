@@ -20,6 +20,10 @@ if ($my_services) {
 		array_push($myServicesArray, $my_service['id']);
 	}
 }
+$selectTimes = array(0.5,1,1.5,2,2.5,3);
+// echo '<pre>';
+// print_r($selectTimes);
+// echo '</pre>';
 
 // require '../company.php';
 

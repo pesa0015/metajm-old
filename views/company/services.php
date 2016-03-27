@@ -15,12 +15,35 @@
 			<?php foreach ($services as $service): ?>
 			<tr>
 				<?php if ($admin[0]['admin'] == 1): ?>
-					<td><i class="ion-edit"></i></td>
+					<td>
+						<i class="ion-edit edit-service-btn" data-service="<?=$service['id']; ?>"></i>
+						<button id="edit-service-<?=$service['id']; ?>">Ok</button>
+					</td>
 				<?php endif; ?>
-				<td><?=$service['category_name']; ?></td>
-				<td><?=$service['service_name']; ?></td>
-				<td><?=$service['price']; ?></td>
-				<td><?=$service['time']; ?></td>
+				<td>
+					<span class="service-<?=$service['id']; ?>"><?=$service['category_name']; ?></span>
+					<input type="text" class="edit-service-<?=$service['id']; ?>" value="<?=$service['category_id']; ?>" data-name="<?=$service['category_name']; ?>">
+				</td>
+				<td>
+					<span class="service-<?=$service['id']; ?>"><?=$service['service_name']; ?></span>
+					<input type="text" class="edit-service-<?=$service['id']; ?> form-control" value="<?=$service['service_name']; ?>">
+				</td>
+				<td>
+					<span class="service-<?=$service['id']; ?>"><?=$service['price']; ?></span>
+					<input type="text" class="edit-service-<?=$service['id']; ?> form-control" value="<?=$service['price']; ?>">
+				</td>
+				<td>
+					<span class="service-<?=$service['id']; ?>"><?=$service['time']; ?></span>
+					<select class="edit-service-<?=$service['id']; ?> form-control">
+						<?php foreach($selectTimes as $time): ?>
+							<?php if ($time == $service['time']): ?>
+								<option value="<?=$time; ?>" selected><?=$time; ?></option>
+							<?php else: ?>
+								<option value="<?=$time; ?>"><?=$time; ?></option>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</select>
+				</td>
 				<?php 
 				if ($my_services) {
 					if (in_array($service['id'], $myServicesArray)) { ?>
