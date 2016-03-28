@@ -474,13 +474,14 @@ select:-moz-focusring {
     /*width: 60px;*/
 }
 .times {
-    border-right: 2px solid silver;
+    border-right: 2px solid #f5f4f6;
     display: inline-block;
     padding-right: 10px;
     margin-right: 10px;
     vertical-align: middle;
 }
 .customer {
+    font-size: 15px;
     display: inline-block;
 }
 .customer span:first-child {
