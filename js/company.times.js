@@ -418,16 +418,31 @@ document.getElementById('personnr').addEventListener('input', function() {
         // sendData('post/search.php', 'term=' + this.value + '&search=personnr', personNrResult, xhttp.responseText);
     // }
 });
-function bookTime(timestamp) {
-    var date = timestamp.substring(0,10);
-    var time = timestamp.substring(11);
-    var modalDialog = document.getElementById('modal-12');
-    modalDialog.className += ' md-show';
-    document.getElementById('md-date').innerHTML = date;
-    document.getElementById('md-time').innerHTML = time;
-    document.getElementById('book').addEventListener('click', function() {
-        var booking = {};
-        booking.datetime = timestamp;
+function isEmpty(obj) {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true && JSON.stringify(obj) === JSON.stringify({});
+}
+// var booking = {};
+// booking.test = 1;
+// booking.now = 2;
+// for (var k in booking) {
+//     if (booking.hasOwnProperty(k)) {
+//         console.log(k);
+//         delete booking.k;
+//     }
+// }
+// delete booking;
+// booking = null;
+// console.log(booking);
+var timeToBook = null;
+var modalDialog = document.getElementById('modal-12');
+function book() {
+    var booking = {};
+        booking.datetime = timeToBook;
         booking.customer_id = document.getElementById('customer_id').value;
         booking.personnr = document.getElementById('personnr').value;
         booking.fname = document.getElementById('fname').value;
@@ -435,7 +450,6 @@ function bookTime(timestamp) {
         booking.mail = document.getElementById('mail').value;
         booking.tel = document.getElementById('tel').value;
         booking.service = parseInt(document.getElementById('select2').value);
-        // console.log('booking=' + JSON.stringify(booking));
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -447,7 +461,7 @@ function bookTime(timestamp) {
                 }
                 else {
                     // location.reload(true);
-                    getOpeningHours(date);
+                    getOpeningHours(timeToBook.substring(0,10));
                     $(modalDialog).removeClass('md-show');
                     var n = noty({layout:'center',type:'success',text:'Bokning genomförd<i class="ion-checkmark-circled" style="margin-left:5px;"></i>'});
                 }
@@ -456,12 +470,15 @@ function bookTime(timestamp) {
         xhttp.open('POST', 'mobile_api/post/bookings.set.php', true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhttp.send('booking=' + JSON.stringify(booking));
-        // sendData('post/bookings.set.php', 'personnr=' + personnr + '&fname=' + fname + '&lname=' + lname + '&service_id=' + service, bookedComplete);
-        // sendData('post/bookings.set.php', 'booking=' + JSON.stringify(booking), bookedComplete);
-    });
-    // console.log(element);
-    // console.log(day);
-    // console.log(timestamp.substring(11));
+}
+function bookTime(timestamp) {
+    var date = timestamp.substring(0,10);
+    var time = timestamp.substring(11);
+    timeToBook = date + ' ' + time;
+    modalDialog.className += ' md-show';
+    document.getElementById('md-date').innerHTML = date;
+    document.getElementById('md-time').innerHTML = time;
+    document.getElementById('book').addEventListener('click', book, false);
 }
 var manageTime = function() {
     // console.log(1);
