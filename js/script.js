@@ -221,21 +221,47 @@ $('#date-picker').datepicker({
 });
 var loginModal = document.getElementById('login-modal');
 var loginAs = null;
+var error = document.getElementById('error');
 function login() {
-  console.log(loginAs);
+  var input = {};
+  input.user = document.getElementById('username').value;
+  input.password = document.getElementById('password').value;
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      if (parseInt(xhttp.responseText) == 1) {
+        if (loginAs === 'private')
+          location.reload(true);
+        else
+          location.replace('company/todo');
+      }
+      if (xhttp.responseText === 'wrong username') {
+        error.innerHTML = 'Email eller telefon stämmer inte';
+      }
+      if (xhttp.responseText === 'wrong password') {
+        error.innerHTML = 'Fel lösenord';
+      }
+    }
+  }
+  xhttp.open('POST', baseUrl + '/mobile_api/post/auth.' + loginAs + '.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.send('login=' + JSON.stringify(input));
 }
 function showLoginModal(person) {
-  loginModal.setAttribute('data-role', person);
   if (person === 'private') {
     document.getElementById('login-as').innerHTML = 'Logga in som privatperson';
     document.getElementById('login-user').innerHTML = 'Email eller personnr';
   }
   else {
     document.getElementById('login-as').innerHTML = 'Logga in som stylist';
-    document.getElementById('login-user').innerHTML = 'Email eller användarnamn';
+    document.getElementById('login-user').innerHTML = 'Email eller telefon';
   }
   loginAs = person;
   document.getElementById('login').addEventListener('click', login);
+  document.getElementById('password').onkeydown = function(e){
+     if(e.keyCode == 13){
+       login();
+     }
+  };
   setTimeout(function() {
     loginModal.className += ' md-show';
   }, 500);

@@ -16,14 +16,14 @@
 <body>
     <div class="md-modal md-effect-1" id="login-modal">
         <div class="md-content">
-            <h3 id="login-as">Logga in som</h3>
+            <h3 id="login-as"></h3>
             <div>
-                <p id="login-user">Användarnamn</p>
-                <input type="text" id="name">
+                <p id="login-user"></p>
+                <input type="text" id="username">
                 <p>Lösenord</p>
                 <input type="password" id="password">
                 <button id="login">Logga in</button>
-                <!-- <button id="md-close">Avbryt</button> -->
+                <p id="error"></p>
             </div>
         </div>
     </div>
