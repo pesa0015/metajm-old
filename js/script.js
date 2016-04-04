@@ -10,8 +10,7 @@ var address = document.getElementById('address');
 var lat = document.getElementById('lat');
 var lng = document.getElementById('lng');
 var xhttp = new XMLHttpRequest();
-// var baseUrl = 'http://46.101.90.3';
-var baseUrl = 'http://localhost:8888/metajm.v3';
+var baseUrl = 'http://46.101.90.3';
 
 function firstToUpperCase( str ) {
     return str.substr(0, 1).toUpperCase() + str.substr(1);
