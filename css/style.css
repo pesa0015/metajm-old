@@ -298,6 +298,35 @@ input[type=checkbox]:checked + label[for=tattoo] {
 .service-time {
 
 }
+.md-content {
+    background: #FFFFFF;
+    color: #000000;
+}
+#password {
+    display: block;
+}
+#login {
+    display: inline-block;
+    margin-top: 30px;
+    transition: 0.1s;
+}
+#login:hover {
+    opacity: 0.5;
+}
+button {
+    border: none;
+    padding: 0.6em 1.2em;
+    background: #c0392b;
+    color: #fff;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 3px 2px;
+    border-radius: 2px;
+    outline: 0px;
+}
 
 @media only screen and (max-width: 1320px) {
     #selected-company {

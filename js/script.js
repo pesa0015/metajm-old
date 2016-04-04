@@ -219,3 +219,61 @@ $('#date-picker').datepicker({
     getTimes(date);
   }
 });
+var loginModal = document.getElementById('login-modal');
+var loginAs = null;
+function login() {
+  console.log(loginAs);
+}
+function showLoginModal(person) {
+  loginModal.setAttribute('data-role', person);
+  if (person === 'private') {
+    document.getElementById('login-as').innerHTML = 'Logga in som privatperson';
+    document.getElementById('login-user').innerHTML = 'Email eller personnr';
+  }
+  else {
+    document.getElementById('login-as').innerHTML = 'Logga in som stylist';
+    document.getElementById('login-user').innerHTML = 'Email eller användarnamn';
+  }
+  loginAs = person;
+  document.getElementById('login').addEventListener('click', login);
+  setTimeout(function() {
+    loginModal.className += ' md-show';
+  }, 500);
+  document.getElementsByClassName('md-overlay')[0].addEventListener('click', function(event) {
+    loginModal.className = 'md-modal md-effect-1';
+  });
+}
+var notyInit = false;
+document.getElementById('show-login-modal').addEventListener('click', function(event) {
+  var message = noty({
+    text: 'Hur vill du logga in som?',
+    layout: 'center',
+    theme: 'relax',
+    animation: {
+      open: {height: 'toggle'}, 
+        close: {height: 'toggle'},
+        easing: 'swing',
+        speed: 500 
+    },
+    closeWith: ['click'],
+    buttons: [{
+      addClass: 'btn btn-primary', text: 'Privatperson', onClick: function ($noty) {    
+        $noty.close();
+        showLoginModal('private');
+      }
+    },
+    {
+      addClass: 'btn btn-danger', text: 'Stylist', onClick: function ($noty) {
+        $noty.close();
+        showLoginModal('stylist');
+      }
+    }]
+  });
+  document.getElementsByClassName('noty_buttons')[0].style.textAlign = 'center';
+  notyInit = true;
+});
+document.addEventListener('click', function(event) {
+  if (!notyInit && event.target.className.substring(0,4) !== 'noty')
+    $.noty.closeAll();
+  notyInit = false;
+});

@@ -9,10 +9,25 @@
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="http://saeedalipoor.github.io/icono/icono.min.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="vendor/component.css">
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+    <div class="md-modal md-effect-1" id="login-modal">
+        <div class="md-content">
+            <h3 id="login-as">Logga in som</h3>
+            <div>
+                <p id="login-user">Användarnamn</p>
+                <input type="text" id="name">
+                <p>Lösenord</p>
+                <input type="password" id="password">
+                <button id="login">Logga in</button>
+                <!-- <button id="md-close">Avbryt</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
     <div id="start">
         <div id="start-background">
             <div id="no-position">
@@ -32,7 +47,7 @@
                         <input type="hidden" id="lng" name="lng">
                     </div>
                 </form>
-                <div style="text-align: center;"><a href="login" style="color: #FFFFFF; text-decoration: none;">Logga in</a></div>
+                <div id="show-login-modal" style="color:#FFFFFF;text-align:center;cursor:pointer;">Logga in</div>
             </div>
             <div id="selected-company" style="display:none;">
                 <div id="company-data">
@@ -74,6 +89,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/locale/sv.js"></script>
 <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
 <script src="vendor/jquery-ui.min.js"></script>
+<script src="vendor/jquery.noty.packaged.min.js"></script>
 <script>
     // var datePicker = $('#date-picker');
     // $(datePicker).datepicker({
@@ -99,6 +115,8 @@
 <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 <script src="https://maps.google.com/maps/api/js?libraries=places"></script>
 <script src="vendor/locationpicker.jquery.js"></script>
+<script src="vendor/classie.js"></script>
+<script src="vendor/modalEffects.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
